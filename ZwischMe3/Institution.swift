@@ -11,4 +11,8 @@ import Foundation
 class Institution: NSObject {
     var objectId: String?
     var name: String?
+    
+    override init() {
+        super.init()
+    }
 }

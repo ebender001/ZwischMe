@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ResidentHomeViewController: UIViewController {
+
+class ResidentHomeViewController: UIViewController, PendingCasesFetcherProtocol {
     @IBOutlet weak var newCaseButton: UIButton!
     @IBOutlet weak var pendingCasesButton: UIButton!
     @IBOutlet weak var completedCasesButton: UIButton!
@@ -51,21 +52,35 @@ class ResidentHomeViewController: UIViewController {
     }
     
     @IBAction func newCaseButtonTapped(sender: AnyObject) {
+        Case.sharedInstance.clearCase()
         performSegueWithIdentifier(newCaseSegue, sender: nil)
     }
+    
     @IBAction func pendingCaseButtonTapped(sender: AnyObject) {
+        EZLoadingActivity.show("Fetching...", disableUI: true)
+        let pendingCasesFetcher = PendingCasesFetcher()
+        pendingCasesFetcher.delegate = self
+        pendingCasesFetcher.startFetch()
     }
+    
     @IBAction func completedCaseButtonTapped(sender: AnyObject) {
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == pendingCasesSegue {
+            let vc = segue.destinationViewController as? PendingCasesTableViewController
+            vc?.casesArray = sender as? [Case]
+        }
     }
-    */
+    
+    //MARK: - DELEGATE METHODS
+    func didFetchCases(cases: [Case]) {
+        EZLoadingActivity.hide()
+        self.performSegueWithIdentifier(pendingCasesSegue, sender: cases)
+    }
+    func failedToFetchCases(reason: String) {
+        EZLoadingActivity.hide()
+        SJNotificationViewController(parentView: self.navigationController!.view, title: reason, level: SJNotificationLevelMessage, position: SJNotificationPositionBottom, spinner: false).showFor(2)
+    }
 
 }

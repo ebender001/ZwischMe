@@ -31,6 +31,7 @@ let ZwischCell = "ZwischCell"
 let AttendingCasesCell = "AttendingCasesCell"
 let PendingCasesCell = "PendingCasesCell"
 let CompletedCasesCell = "CompletedCasesCell"
+let SpecialtyCell = "SpecialtyCell"
 
 //segues
 let newCaseSegue = "newCaseSegue"
@@ -53,6 +54,8 @@ let attendingStartSegue = "attendingStartSegue"
 let residentStartSegue = "residentStartSegue"
 let signupSegue = "signupSegue"
 let loginSegue = "loginSegue"
+let specialtySegue = "specialtySegue"
+let redoSegue = "redoSegue"
 
 //defaults keys
 let kRole = "kRole"

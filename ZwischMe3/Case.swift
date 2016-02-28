@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Case: NSObject {
+class Case: NSObject{
     
     static let sharedInstance = Case()
     
@@ -16,21 +16,32 @@ class Case: NSObject {
     var created: NSDate?
     var updated: NSDate?
     var caseDate: NSDate?
-    var caseOfDay = 1
+    var caseOfDay: Int
     var procedureType = ""
     var procedureDetail = ""
-    var redo = false
-    var minimallyInvasive = false
+    var redo: Bool
+    var minimallyInvasive: Bool
     var residentZwischStage = ""
     var residentDifficulty = ""
     var attendingZwischStage = ""
     var attendingDifficulty = ""
     var attendingComments = ""
-    var attendingComplete = false
-    var attendingObject: AllowedUser?
+    var attendingComplete: Bool
+    var attendingObject: AllowedUsers?
     var institutionObject: Institution?
-    var residentObject: AllowedUser?
-    var viewedByResident = false
+    var residentObject: AllowedUsers?
+    var viewedByResident: Bool
+    var caseDateSummary = ""
+    
+    override init() {
+        redo = false
+        minimallyInvasive = false
+        attendingComplete = false
+        viewedByResident = false
+        caseOfDay = 1
+        
+        super.init()
+    }
 }
 
 extension Case {
@@ -64,6 +75,20 @@ extension Case {
             return df.stringFromDate(caseDate)
         }
         return ""
+    }
+    
+    func caseProcedureString() -> String {
+        var detail = procedureDetail
+        var str = "\(procedureType): "
+        if redo {
+            str += "Redo "
+            detail = detail.lowercaseString
+        }
+        str += detail
+        if minimallyInvasive {
+            str += " (minimally invasive)"
+        }
+        return str
     }
     
     func caseComplete() -> Bool {

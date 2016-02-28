@@ -8,16 +8,20 @@
 
 import Foundation
 
-class AllowedUser: NSObject {
+class AllowedUsers: NSObject {
     var cellNumber: String?
     var email: String?
     var firstName: String?
     var lastName: String?
     var institutionId: String?
     var objectId: String?
+    
+    override init() {
+        super.init()
+    }
 }
 
-extension AllowedUser {
+extension AllowedUsers {
     func fullName() -> String {
         var str = ""
         if let firstName = firstName {

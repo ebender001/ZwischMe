@@ -1,0 +1,22 @@
+body{
+    margin-top: 0px;
+}
+
+h2 {
+    color: RGB(88,86,214);
+    font-size: 1.4em;
+}
+
+li {
+    color: RGB(11,68,47);
+    margin-top: 0px;
+    font-size:1.2em;
+}
+
+td.label{
+    color: darkgray;
+}
+
+td.data{
+    color:black;
+}

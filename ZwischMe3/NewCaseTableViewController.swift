@@ -8,8 +8,9 @@
 
 import UIKit
 
-class NewCaseTableViewController: UITableViewController {
+class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtocol, SpecialtyFetcherProtocol, ZwischFetcherProtocol, ResidentSubmissionProtocol {
     let newCaseComponents = ["Date of Case", "Attending Surgeon", "Procedure", "Zwisch Stage", "Difficulty"]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,20 @@ class NewCaseTableViewController: UITableViewController {
         tableView.separatorStyle = .None
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
+        self.tableView.reloadData()
+        
+        if Case.sharedInstance.caseComplete() {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .Plain, target: self, action: "submitCase:")
+        }
+        else{
+            navigationItem.rightBarButtonItem = nil
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,7 +66,39 @@ class NewCaseTableViewController: UITableViewController {
         cell.detailTextLabel?.textColor = UIColor.yellowColor()
         cell.detailTextLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 14.0)
         cell.detailTextLabel?.numberOfLines = 0
-
+        
+        switch indexPath.row {
+        case 0:
+            cell.detailTextLabel?.text = Case.sharedInstance.caseDateSummary
+        case 1:
+            if let attending = Case.sharedInstance.attendingObject {
+                cell.detailTextLabel?.text = attending.fullName()
+            }
+            else{
+                cell.detailTextLabel?.text = ""
+            }
+        case 2:
+            var finalStr = ""
+            let type = Case.sharedInstance.procedureType
+            let detail = Case.sharedInstance.procedureDetail
+            if type != "" && detail != "" {
+                finalStr = "\(type): \(detail)"
+            }
+            if Case.sharedInstance.redo {
+                finalStr = "\(finalStr), redo"
+            }
+            if Case.sharedInstance.minimallyInvasive {
+                finalStr = "\(finalStr), minimally invasive"
+            }
+            cell.detailTextLabel?.text = finalStr
+        case 3:
+            cell.detailTextLabel?.text = Case.sharedInstance.residentZwischStage
+        case 4:
+            cell.detailTextLabel?.text = Case.sharedInstance.residentDifficulty
+        default:
+            break
+        }
+        
         return cell
     }
     
@@ -68,9 +114,108 @@ class NewCaseTableViewController: UITableViewController {
         case 0:
             //date
             performSegueWithIdentifier(caseDateSegue, sender: nil)
+        case 1:
+            //attendings
+            fetchAttendings()
+        case 2:
+            //specialty
+            fetchSpecialty()
+        case 3:
+            //zwisch
+            fetchZwisch()
+        case 4:
+            self.performSegueWithIdentifier(difficultySegue, sender: nil)
         default:
             break
         }
+    }
+    
+    //MARK: - SUBMIT
+    func submitCase(sender: AnyObject?) {
+        self.performSegueWithIdentifier(residentSubmitSegue, sender: nil)
+    }
+    
+    //MARK: - NAVIGATION
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == attendingSegue {
+            let vc = segue.destinationViewController as? AttendingTableViewController
+            vc?.attendingsArray = sender as? [AllowedUsers]
+        }
+        if segue.identifier == specialtySegue {
+            let vc = segue.destinationViewController as? SpecialtyTableViewController
+            vc?.specialtyArray = sender as? [Specialty]
+        }
+        if segue.identifier == zwischSegue {
+            let vc = segue.destinationViewController as? ZwischTableViewController
+            vc?.zwischArray = sender as? [ZwischStage]
+        }
+        if segue.identifier == residentSubmitSegue {
+            let vc = segue.destinationViewController as? ResidentSubmitViewController
+            vc?.delegate = self
+        }
+    }
+    
+    //MARK: - DATA FETCH
+    func fetchAttendings() {
+        EZLoadingActivity.show("Fetching...", disableUI: true)
+        let physicianFetcher = PhysicianFetcher()
+        physicianFetcher.delegate = self
+        physicianFetcher.startFetch(true)
+    }
+    
+    func fetchSpecialty() {
+        EZLoadingActivity.show("Fetching...", disableUI: true)
+        let specialtyFetcher = SpecialtyFetcher()
+        specialtyFetcher.delegate = self
+        specialtyFetcher.startFetch()
+    }
+    
+    func fetchZwisch() {
+        EZLoadingActivity.show("Fetching...", disableUI: true)
+        let zwischFetcher = ZwischFetcher()
+        zwischFetcher.delegate = self
+        zwischFetcher.startFetch()
+    }
+    
+    //MARK: - PROTOCOL METHODS
+    func didFetchPhysicians(physicians: [AllowedUsers]) {
+        EZLoadingActivity.hide()
+        self.performSegueWithIdentifier(attendingSegue, sender: physicians)
+    }
+    func failedToFetchPhysicians(reason: String) {
+        EZLoadingActivity.hide()
+        print(reason)
+    }
+    
+    func didFetchSpecialties(specialties: [Specialty]) {
+        EZLoadingActivity.hide()
+        self.performSegueWithIdentifier(specialtySegue, sender: specialties)
+    }
+    func failedToFetchSpecialties(message: String) {
+        EZLoadingActivity.hide()
+        print(message)
+    }
+    
+    func didFetchZwisch(zwisch: [ZwischStage]) {
+        EZLoadingActivity.hide()
+        self.performSegueWithIdentifier(zwischSegue, sender: zwisch)
+    }
+    func failedToFetchZwisch(reason: String) {
+        EZLoadingActivity.hide()
+        print(reason)
+    }
+    
+    func didCompleteSubmission(theCase: Case) {
+        Case.sharedInstance.clearCase()
+        dismissViewControllerAnimated(true, completion: nil)
+        SJNotificationViewController(parentView: self.navigationController!.view, title: "Successfully submitted your case.", level: SJNotificationLevelMessage, position: SJNotificationPositionBottom, spinner: false).showFor(3)
+        delay(3.5) { () -> () in
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
+        
+    }
+    func failedToSubmitCase(reason: String) {
+        
     }
 
 }

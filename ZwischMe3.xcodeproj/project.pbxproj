@@ -29,13 +29,34 @@
 		CEA706D51C80F4E500204138 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA706D41C80F4E500204138 /* Constants.swift */; };
 		CEA706D81C81029A00204138 /* NewCaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA706D71C81029A00204138 /* NewCaseTableViewController.swift */; };
 		CEA706DB1C8109EC00204138 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA706DA1C8109EC00204138 /* Case.swift */; };
-		CEA706DD1C81124C00204138 /* AllowedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA706DC1C81124C00204138 /* AllowedUser.swift */; };
+		CEA706DD1C81124C00204138 /* AllowedUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA706DC1C81124C00204138 /* AllowedUsers.swift */; };
 		CEA706DF1C81135000204138 /* Institution.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA706DE1C81135000204138 /* Institution.swift */; };
 		CEA706E11C8116E900204138 /* ProcedureDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA706E01C8116E900204138 /* ProcedureDetails.swift */; };
 		CEA706E31C81173B00204138 /* ProcedureCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA706E21C81173B00204138 /* ProcedureCategory.swift */; };
 		CEA706E51C81181D00204138 /* Specialty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA706E41C81181D00204138 /* Specialty.swift */; };
 		CEA706E71C81199B00204138 /* ZwischStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA706E61C81199B00204138 /* ZwischStage.swift */; };
 		CEA706E91C81215000204138 /* CaseDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA706E81C81215000204138 /* CaseDateViewController.swift */; };
+		CEC132001C81F2D700A20D37 /* AttendingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC131FF1C81F2D700A20D37 /* AttendingTableViewController.swift */; };
+		CEC132031C81F39F00A20D37 /* PhysicianFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC132021C81F39F00A20D37 /* PhysicianFetcher.swift */; };
+		CEC132061C8205DA00A20D37 /* EZLoadingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC132051C8205DA00A20D37 /* EZLoadingActivity.swift */; };
+		CEC132081C82070300A20D37 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC132071C82070300A20D37 /* Functions.swift */; };
+		CEC1320A1C8229CD00A20D37 /* SpecialtyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC132091C8229CD00A20D37 /* SpecialtyTableViewController.swift */; };
+		CEC1320C1C822B1000A20D37 /* SpecialtyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1320B1C822B1000A20D37 /* SpecialtyFetcher.swift */; };
+		CEC1320E1C82360B00A20D37 /* ProcedureCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1320D1C82360B00A20D37 /* ProcedureCategoryTableViewController.swift */; };
+		CEC132101C823BD400A20D37 /* ProcedureDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1320F1C823BD400A20D37 /* ProcedureDetailsTableViewController.swift */; };
+		CEC132141C827CD900A20D37 /* RedoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC132131C827CD900A20D37 /* RedoViewController.swift */; };
+		CEC132161C8282D700A20D37 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = CEC132151C8282D700A20D37 /* style.css */; };
+		CEC132181C82835500A20D37 /* ZwischTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC132171C82835500A20D37 /* ZwischTableViewController.swift */; };
+		CEC1321A1C82848D00A20D37 /* ZwischFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC132191C82848D00A20D37 /* ZwischFetcher.swift */; };
+		CEC1321C1C82898300A20D37 /* ZwischInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1321B1C82898300A20D37 /* ZwischInfoViewController.swift */; };
+		CEC1321E1C82919300A20D37 /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1321D1C82919300A20D37 /* DifficultyViewController.swift */; };
+		CEC132201C829AE800A20D37 /* ResidentSubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC1321F1C829AE800A20D37 /* ResidentSubmitViewController.swift */; };
+		CEC132221C82A01500A20D37 /* CaseSubmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC132211C82A01500A20D37 /* CaseSubmitter.swift */; };
+		CEEA95D71C83392900EB81CF /* SJNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95D51C83392900EB81CF /* SJNotificationViewController.m */; };
+		CEEA95D81C83392900EB81CF /* SJNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEA95D61C83392900EB81CF /* SJNotificationViewController.xib */; };
+		CEEA95DC1C83512C00EB81CF /* PendingCasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95DB1C83512C00EB81CF /* PendingCasesTableViewController.swift */; };
+		CEEA95DE1C8354DF00EB81CF /* PendingCasesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95DD1C8354DF00EB81CF /* PendingCasesFetcher.swift */; };
+		CEEA95E01C835EAA00EB81CF /* Read Me in Resources */ = {isa = PBXBuildFile; fileRef = CEEA95DF1C835EAA00EB81CF /* Read Me */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -234,13 +255,35 @@
 		CEA706D41C80F4E500204138 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CEA706D71C81029A00204138 /* NewCaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCaseTableViewController.swift; sourceTree = "<group>"; };
 		CEA706DA1C8109EC00204138 /* Case.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
-		CEA706DC1C81124C00204138 /* AllowedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllowedUser.swift; sourceTree = "<group>"; };
+		CEA706DC1C81124C00204138 /* AllowedUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllowedUsers.swift; sourceTree = "<group>"; };
 		CEA706DE1C81135000204138 /* Institution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Institution.swift; sourceTree = "<group>"; };
 		CEA706E01C8116E900204138 /* ProcedureDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcedureDetails.swift; sourceTree = "<group>"; };
 		CEA706E21C81173B00204138 /* ProcedureCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcedureCategory.swift; sourceTree = "<group>"; };
 		CEA706E41C81181D00204138 /* Specialty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Specialty.swift; sourceTree = "<group>"; };
 		CEA706E61C81199B00204138 /* ZwischStage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZwischStage.swift; sourceTree = "<group>"; };
 		CEA706E81C81215000204138 /* CaseDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseDateViewController.swift; sourceTree = "<group>"; };
+		CEC131FF1C81F2D700A20D37 /* AttendingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendingTableViewController.swift; sourceTree = "<group>"; };
+		CEC132021C81F39F00A20D37 /* PhysicianFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicianFetcher.swift; sourceTree = "<group>"; };
+		CEC132051C8205DA00A20D37 /* EZLoadingActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZLoadingActivity.swift; sourceTree = "<group>"; };
+		CEC132071C82070300A20D37 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		CEC132091C8229CD00A20D37 /* SpecialtyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialtyTableViewController.swift; sourceTree = "<group>"; };
+		CEC1320B1C822B1000A20D37 /* SpecialtyFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialtyFetcher.swift; sourceTree = "<group>"; };
+		CEC1320D1C82360B00A20D37 /* ProcedureCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcedureCategoryTableViewController.swift; sourceTree = "<group>"; };
+		CEC1320F1C823BD400A20D37 /* ProcedureDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcedureDetailsTableViewController.swift; sourceTree = "<group>"; };
+		CEC132131C827CD900A20D37 /* RedoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedoViewController.swift; sourceTree = "<group>"; };
+		CEC132151C8282D700A20D37 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		CEC132171C82835500A20D37 /* ZwischTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZwischTableViewController.swift; sourceTree = "<group>"; };
+		CEC132191C82848D00A20D37 /* ZwischFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZwischFetcher.swift; sourceTree = "<group>"; };
+		CEC1321B1C82898300A20D37 /* ZwischInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZwischInfoViewController.swift; sourceTree = "<group>"; };
+		CEC1321D1C82919300A20D37 /* DifficultyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
+		CEC1321F1C829AE800A20D37 /* ResidentSubmitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResidentSubmitViewController.swift; sourceTree = "<group>"; };
+		CEC132211C82A01500A20D37 /* CaseSubmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseSubmitter.swift; sourceTree = "<group>"; };
+		CEEA95D41C83392900EB81CF /* SJNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJNotificationViewController.h; sourceTree = "<group>"; };
+		CEEA95D51C83392900EB81CF /* SJNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJNotificationViewController.m; sourceTree = "<group>"; };
+		CEEA95D61C83392900EB81CF /* SJNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SJNotificationViewController.xib; sourceTree = "<group>"; };
+		CEEA95DB1C83512C00EB81CF /* PendingCasesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingCasesTableViewController.swift; sourceTree = "<group>"; };
+		CEEA95DD1C8354DF00EB81CF /* PendingCasesFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingCasesFetcher.swift; sourceTree = "<group>"; };
+		CEEA95DF1C835EAA00EB81CF /* Read Me */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Read Me"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +314,10 @@
 		CEA705D61C80EDD600204138 = {
 			isa = PBXGroup;
 			children = (
+				CEEA95DF1C835EAA00EB81CF /* Read Me */,
+				CEEA95D41C83392900EB81CF /* SJNotificationViewController.h */,
+				CEEA95D51C83392900EB81CF /* SJNotificationViewController.m */,
+				CEEA95D61C83392900EB81CF /* SJNotificationViewController.xib */,
 				CEA705FA1C80EF4800204138 /* lib */,
 				CEA705F81C80EF1700204138 /* libz.tbd */,
 				CEA705F61C80EF0C00204138 /* libsqlite3.tbd */,
@@ -291,6 +338,8 @@
 		CEA705E11C80EDD600204138 /* ZwischMe3 */ = {
 			isa = PBXGroup;
 			children = (
+				CEC132041C8205CD00A20D37 /* Utilities */,
+				CEC132011C81F37100A20D37 /* DataConnection */,
 				CEA706D91C8109DB00204138 /* Data */,
 				CEA706D61C80F55800204138 /* Resident */,
 				CEA705E21C80EDD600204138 /* AppDelegate.swift */,
@@ -298,7 +347,6 @@
 				CEA705E91C80EDD600204138 /* Assets.xcassets */,
 				CEA705EB1C80EDD600204138 /* LaunchScreen.storyboard */,
 				CEA705EE1C80EDD600204138 /* Info.plist */,
-				CEA706D41C80F4E500204138 /* Constants.swift */,
 			);
 			path = ZwischMe3;
 			sourceTree = "<group>";
@@ -672,8 +720,8 @@
 			isa = PBXGroup;
 			children = (
 				CEA706D21C80F3D700204138 /* ResidentHomeViewController.swift */,
-				CEA706D71C81029A00204138 /* NewCaseTableViewController.swift */,
-				CEA706E81C81215000204138 /* CaseDateViewController.swift */,
+				CEEA95DA1C83510500EB81CF /* Pending Cases */,
+				CEEA95D91C8350F300EB81CF /* New Case */,
 			);
 			name = Resident;
 			sourceTree = "<group>";
@@ -682,7 +730,7 @@
 			isa = PBXGroup;
 			children = (
 				CEA706DA1C8109EC00204138 /* Case.swift */,
-				CEA706DC1C81124C00204138 /* AllowedUser.swift */,
+				CEA706DC1C81124C00204138 /* AllowedUsers.swift */,
 				CEA706DE1C81135000204138 /* Institution.swift */,
 				CEA706E01C8116E900204138 /* ProcedureDetails.swift */,
 				CEA706E21C81173B00204138 /* ProcedureCategory.swift */,
@@ -690,6 +738,55 @@
 				CEA706E61C81199B00204138 /* ZwischStage.swift */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		CEC132011C81F37100A20D37 /* DataConnection */ = {
+			isa = PBXGroup;
+			children = (
+				CEC132021C81F39F00A20D37 /* PhysicianFetcher.swift */,
+				CEC1320B1C822B1000A20D37 /* SpecialtyFetcher.swift */,
+				CEC132191C82848D00A20D37 /* ZwischFetcher.swift */,
+				CEC132211C82A01500A20D37 /* CaseSubmitter.swift */,
+				CEEA95DD1C8354DF00EB81CF /* PendingCasesFetcher.swift */,
+			);
+			name = DataConnection;
+			sourceTree = "<group>";
+		};
+		CEC132041C8205CD00A20D37 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CEC132151C8282D700A20D37 /* style.css */,
+				CEA706D41C80F4E500204138 /* Constants.swift */,
+				CEC132051C8205DA00A20D37 /* EZLoadingActivity.swift */,
+				CEC132071C82070300A20D37 /* Functions.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		CEEA95D91C8350F300EB81CF /* New Case */ = {
+			isa = PBXGroup;
+			children = (
+				CEA706D71C81029A00204138 /* NewCaseTableViewController.swift */,
+				CEA706E81C81215000204138 /* CaseDateViewController.swift */,
+				CEC131FF1C81F2D700A20D37 /* AttendingTableViewController.swift */,
+				CEC132091C8229CD00A20D37 /* SpecialtyTableViewController.swift */,
+				CEC1320D1C82360B00A20D37 /* ProcedureCategoryTableViewController.swift */,
+				CEC1320F1C823BD400A20D37 /* ProcedureDetailsTableViewController.swift */,
+				CEC132131C827CD900A20D37 /* RedoViewController.swift */,
+				CEC132171C82835500A20D37 /* ZwischTableViewController.swift */,
+				CEC1321B1C82898300A20D37 /* ZwischInfoViewController.swift */,
+				CEC1321D1C82919300A20D37 /* DifficultyViewController.swift */,
+				CEC1321F1C829AE800A20D37 /* ResidentSubmitViewController.swift */,
+			);
+			name = "New Case";
+			sourceTree = "<group>";
+		};
+		CEEA95DA1C83510500EB81CF /* Pending Cases */ = {
+			isa = PBXGroup;
+			children = (
+				CEEA95DB1C83512C00EB81CF /* PendingCasesTableViewController.swift */,
+			);
+			name = "Pending Cases";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -750,7 +847,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEA95E01C835EAA00EB81CF /* Read Me in Resources */,
 				CEA705ED1C80EDD600204138 /* LaunchScreen.storyboard in Resources */,
+				CEEA95D81C83392900EB81CF /* SJNotificationViewController.xib in Resources */,
+				CEC132161C8282D700A20D37 /* style.css in Resources */,
 				CEA705EA1C80EDD600204138 /* Assets.xcassets in Resources */,
 				CEA705E81C80EDD600204138 /* Main.storyboard in Resources */,
 			);
@@ -764,16 +864,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA706E11C8116E900204138 /* ProcedureDetails.swift in Sources */,
+				CEC132181C82835500A20D37 /* ZwischTableViewController.swift in Sources */,
+				CEC132001C81F2D700A20D37 /* AttendingTableViewController.swift in Sources */,
+				CEC1320C1C822B1000A20D37 /* SpecialtyFetcher.swift in Sources */,
+				CEEA95DC1C83512C00EB81CF /* PendingCasesTableViewController.swift in Sources */,
 				CEA706E71C81199B00204138 /* ZwischStage.swift in Sources */,
+				CEC1321A1C82848D00A20D37 /* ZwischFetcher.swift in Sources */,
+				CEC132081C82070300A20D37 /* Functions.swift in Sources */,
 				CEA706D81C81029A00204138 /* NewCaseTableViewController.swift in Sources */,
+				CEC132201C829AE800A20D37 /* ResidentSubmitViewController.swift in Sources */,
 				CEA706D31C80F3D700204138 /* ResidentHomeViewController.swift in Sources */,
 				CEA706E91C81215000204138 /* CaseDateViewController.swift in Sources */,
+				CEC132031C81F39F00A20D37 /* PhysicianFetcher.swift in Sources */,
 				CEA706DB1C8109EC00204138 /* Case.swift in Sources */,
+				CEC1321C1C82898300A20D37 /* ZwischInfoViewController.swift in Sources */,
+				CEEA95DE1C8354DF00EB81CF /* PendingCasesFetcher.swift in Sources */,
+				CEC132141C827CD900A20D37 /* RedoViewController.swift in Sources */,
 				CEA706E31C81173B00204138 /* ProcedureCategory.swift in Sources */,
-				CEA706DD1C81124C00204138 /* AllowedUser.swift in Sources */,
+				CEA706DD1C81124C00204138 /* AllowedUsers.swift in Sources */,
+				CEC1321E1C82919300A20D37 /* DifficultyViewController.swift in Sources */,
 				CEA705E31C80EDD600204138 /* AppDelegate.swift in Sources */,
 				CEA706D51C80F4E500204138 /* Constants.swift in Sources */,
+				CEC132221C82A01500A20D37 /* CaseSubmitter.swift in Sources */,
+				CEC132101C823BD400A20D37 /* ProcedureDetailsTableViewController.swift in Sources */,
+				CEC132061C8205DA00A20D37 /* EZLoadingActivity.swift in Sources */,
 				CEA706E51C81181D00204138 /* Specialty.swift in Sources */,
+				CEEA95D71C83392900EB81CF /* SJNotificationViewController.m in Sources */,
+				CEC1320E1C82360B00A20D37 /* ProcedureCategoryTableViewController.swift in Sources */,
+				CEC1320A1C8229CD00A20D37 /* SpecialtyTableViewController.swift in Sources */,
 				CEA706DF1C81135000204138 /* Institution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -944,6 +1062,7 @@
 				CEA705F31C80EDD600204138 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

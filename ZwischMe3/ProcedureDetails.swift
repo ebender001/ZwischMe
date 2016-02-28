@@ -11,4 +11,8 @@ import Foundation
 class ProcedureDetails: NSObject {
     var name: String?
     var order: Int?
+    
+    override init() {
+        super.init()
+    }
 }
