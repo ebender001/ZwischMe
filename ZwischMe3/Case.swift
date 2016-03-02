@@ -19,25 +19,25 @@ class Case: NSObject{
     var caseOfDay: Int
     var procedureType = ""
     var procedureDetail = ""
-    var redo: Bool
-    var minimallyInvasive: Bool
+    var redo: Bool = false
+    var minimallyInvasive: Bool = false
     var residentZwischStage = ""
     var residentDifficulty = ""
     var attendingZwischStage = ""
     var attendingDifficulty = ""
     var attendingComments = ""
-    var attendingComplete: Bool
+    var attendingComplete: Bool = false
     var attendingObject: AllowedUsers?
     var institutionObject: Institution?
     var residentObject: AllowedUsers?
-    var viewedByResident: Bool
+    var viewedByResident: Bool = false
     var caseDateSummary = ""
     
     override init() {
-        redo = false
-        minimallyInvasive = false
-        attendingComplete = false
-        viewedByResident = false
+//        redo = false
+//        minimallyInvasive = false
+//        attendingComplete = false
+//        viewedByResident = false
         caseOfDay = 1
         
         super.init()

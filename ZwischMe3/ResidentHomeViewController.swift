@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ResidentHomeViewController: UIViewController, PendingCasesFetcherProtocol {
+class ResidentHomeViewController: UIViewController, PendingCasesFetcherProtocol, CompletedCasesFetcherProtocol {
     @IBOutlet weak var newCaseButton: UIButton!
     @IBOutlet weak var pendingCasesButton: UIButton!
     @IBOutlet weak var completedCasesButton: UIButton!
@@ -64,12 +64,24 @@ class ResidentHomeViewController: UIViewController, PendingCasesFetcherProtocol 
     }
     
     @IBAction func completedCaseButtonTapped(sender: AnyObject) {
+        EZLoadingActivity.show("Fetching...", disableUI: true)
+        let completedCasesFetcher = CompletedCasesFetcher()
+        completedCasesFetcher.delegate = self
+        completedCasesFetcher.startFetch()
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == pendingCasesSegue {
             let vc = segue.destinationViewController as? PendingCasesTableViewController
             vc?.casesArray = sender as? [Case]
+        }
+        if segue.identifier == completedCasesSegue {
+            let array = sender as? [[Case]]
+            let unviewed = array![0]
+            let viewed = array![1]
+            let vc = segue.destinationViewController as? CompletedCasesTableViewController
+            vc?.unViewedCases = unviewed
+            vc?.viewedCases = viewed
         }
     }
     
@@ -79,6 +91,16 @@ class ResidentHomeViewController: UIViewController, PendingCasesFetcherProtocol 
         self.performSegueWithIdentifier(pendingCasesSegue, sender: cases)
     }
     func failedToFetchCases(reason: String) {
+        EZLoadingActivity.hide()
+        SJNotificationViewController(parentView: self.navigationController!.view, title: reason, level: SJNotificationLevelMessage, position: SJNotificationPositionBottom, spinner: false).showFor(2)
+    }
+    
+    func didFetchCompletedCases(unviewedCases: [Case], viewedCases: [Case]) {
+        EZLoadingActivity.hide()
+        let array = [unviewedCases, viewedCases]
+        self.performSegueWithIdentifier(completedCasesSegue, sender: array)
+    }
+    func failedToFetchCompletedCases(reason: String) {
         EZLoadingActivity.hide()
         SJNotificationViewController(parentView: self.navigationController!.view, title: reason, level: SJNotificationLevelMessage, position: SJNotificationPositionBottom, spinner: false).showFor(2)
     }

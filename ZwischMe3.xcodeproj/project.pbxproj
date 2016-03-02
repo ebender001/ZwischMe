@@ -57,6 +57,16 @@
 		CEEA95DC1C83512C00EB81CF /* PendingCasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95DB1C83512C00EB81CF /* PendingCasesTableViewController.swift */; };
 		CEEA95DE1C8354DF00EB81CF /* PendingCasesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95DD1C8354DF00EB81CF /* PendingCasesFetcher.swift */; };
 		CEEA95E01C835EAA00EB81CF /* Read Me in Resources */ = {isa = PBXBuildFile; fileRef = CEEA95DF1C835EAA00EB81CF /* Read Me */; };
+		CEEA95E21C8360F400EB81CF /* PendingCaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95E11C8360F400EB81CF /* PendingCaseDetailViewController.swift */; };
+		CEEA95E51C83697300EB81CF /* CompletedCasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95E41C83697300EB81CF /* CompletedCasesTableViewController.swift */; };
+		CEEA95E71C836D1B00EB81CF /* CompletedCasesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95E61C836D1B00EB81CF /* CompletedCasesFetcher.swift */; };
+		CEEA95E91C83778800EB81CF /* CompletedCaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95E81C83778800EB81CF /* CompletedCaseDetailViewController.swift */; };
+		CEEA95EB1C837CE800EB81CF /* CaseUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95EA1C837CE800EB81CF /* CaseUpdater.swift */; };
+		CEEA95EE1C839D2E00EB81CF /* AttendingHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95ED1C839D2E00EB81CF /* AttendingHomeTableViewController.swift */; };
+		CEEA95F01C83A32100EB81CF /* AttendingHomeCasesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95EF1C83A32100EB81CF /* AttendingHomeCasesFetcher.swift */; };
+		CEEA95F21C83AA1300EB81CF /* AttendingCaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95F11C83AA1300EB81CF /* AttendingCaseDetailViewController.swift */; };
+		CEEA95FA1C851E6C00EB81CF /* AttendingZwischInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95F91C851E6C00EB81CF /* AttendingZwischInfoViewController.swift */; };
+		CEEA95FC1C876AC600EB81CF /* AttendingCaseUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95FB1C876AC600EB81CF /* AttendingCaseUpdater.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -284,6 +294,16 @@
 		CEEA95DB1C83512C00EB81CF /* PendingCasesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingCasesTableViewController.swift; sourceTree = "<group>"; };
 		CEEA95DD1C8354DF00EB81CF /* PendingCasesFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingCasesFetcher.swift; sourceTree = "<group>"; };
 		CEEA95DF1C835EAA00EB81CF /* Read Me */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Read Me"; sourceTree = "<group>"; };
+		CEEA95E11C8360F400EB81CF /* PendingCaseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingCaseDetailViewController.swift; sourceTree = "<group>"; };
+		CEEA95E41C83697300EB81CF /* CompletedCasesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedCasesTableViewController.swift; sourceTree = "<group>"; };
+		CEEA95E61C836D1B00EB81CF /* CompletedCasesFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedCasesFetcher.swift; sourceTree = "<group>"; };
+		CEEA95E81C83778800EB81CF /* CompletedCaseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedCaseDetailViewController.swift; sourceTree = "<group>"; };
+		CEEA95EA1C837CE800EB81CF /* CaseUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseUpdater.swift; sourceTree = "<group>"; };
+		CEEA95ED1C839D2E00EB81CF /* AttendingHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendingHomeTableViewController.swift; sourceTree = "<group>"; };
+		CEEA95EF1C83A32100EB81CF /* AttendingHomeCasesFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendingHomeCasesFetcher.swift; sourceTree = "<group>"; };
+		CEEA95F11C83AA1300EB81CF /* AttendingCaseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendingCaseDetailViewController.swift; sourceTree = "<group>"; };
+		CEEA95F91C851E6C00EB81CF /* AttendingZwischInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendingZwischInfoViewController.swift; sourceTree = "<group>"; };
+		CEEA95FB1C876AC600EB81CF /* AttendingCaseUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendingCaseUpdater.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +361,7 @@
 				CEC132041C8205CD00A20D37 /* Utilities */,
 				CEC132011C81F37100A20D37 /* DataConnection */,
 				CEA706D91C8109DB00204138 /* Data */,
+				CEEA95EC1C839CFE00EB81CF /* Attending */,
 				CEA706D61C80F55800204138 /* Resident */,
 				CEA705E21C80EDD600204138 /* AppDelegate.swift */,
 				CEA705E61C80EDD600204138 /* Main.storyboard */,
@@ -720,6 +741,7 @@
 			isa = PBXGroup;
 			children = (
 				CEA706D21C80F3D700204138 /* ResidentHomeViewController.swift */,
+				CEEA95E31C83695000EB81CF /* Completed Cases */,
 				CEEA95DA1C83510500EB81CF /* Pending Cases */,
 				CEEA95D91C8350F300EB81CF /* New Case */,
 			);
@@ -746,8 +768,12 @@
 				CEC132021C81F39F00A20D37 /* PhysicianFetcher.swift */,
 				CEC1320B1C822B1000A20D37 /* SpecialtyFetcher.swift */,
 				CEC132191C82848D00A20D37 /* ZwischFetcher.swift */,
-				CEC132211C82A01500A20D37 /* CaseSubmitter.swift */,
 				CEEA95DD1C8354DF00EB81CF /* PendingCasesFetcher.swift */,
+				CEC132211C82A01500A20D37 /* CaseSubmitter.swift */,
+				CEEA95E61C836D1B00EB81CF /* CompletedCasesFetcher.swift */,
+				CEEA95EA1C837CE800EB81CF /* CaseUpdater.swift */,
+				CEEA95EF1C83A32100EB81CF /* AttendingHomeCasesFetcher.swift */,
+				CEEA95FB1C876AC600EB81CF /* AttendingCaseUpdater.swift */,
 			);
 			name = DataConnection;
 			sourceTree = "<group>";
@@ -785,8 +811,28 @@
 			isa = PBXGroup;
 			children = (
 				CEEA95DB1C83512C00EB81CF /* PendingCasesTableViewController.swift */,
+				CEEA95E11C8360F400EB81CF /* PendingCaseDetailViewController.swift */,
 			);
 			name = "Pending Cases";
+			sourceTree = "<group>";
+		};
+		CEEA95E31C83695000EB81CF /* Completed Cases */ = {
+			isa = PBXGroup;
+			children = (
+				CEEA95E41C83697300EB81CF /* CompletedCasesTableViewController.swift */,
+				CEEA95E81C83778800EB81CF /* CompletedCaseDetailViewController.swift */,
+			);
+			name = "Completed Cases";
+			sourceTree = "<group>";
+		};
+		CEEA95EC1C839CFE00EB81CF /* Attending */ = {
+			isa = PBXGroup;
+			children = (
+				CEEA95ED1C839D2E00EB81CF /* AttendingHomeTableViewController.swift */,
+				CEEA95F11C83AA1300EB81CF /* AttendingCaseDetailViewController.swift */,
+				CEEA95F91C851E6C00EB81CF /* AttendingZwischInfoViewController.swift */,
+			);
+			name = Attending;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -867,15 +913,20 @@
 				CEC132181C82835500A20D37 /* ZwischTableViewController.swift in Sources */,
 				CEC132001C81F2D700A20D37 /* AttendingTableViewController.swift in Sources */,
 				CEC1320C1C822B1000A20D37 /* SpecialtyFetcher.swift in Sources */,
+				CEEA95FC1C876AC600EB81CF /* AttendingCaseUpdater.swift in Sources */,
 				CEEA95DC1C83512C00EB81CF /* PendingCasesTableViewController.swift in Sources */,
+				CEEA95E71C836D1B00EB81CF /* CompletedCasesFetcher.swift in Sources */,
 				CEA706E71C81199B00204138 /* ZwischStage.swift in Sources */,
 				CEC1321A1C82848D00A20D37 /* ZwischFetcher.swift in Sources */,
 				CEC132081C82070300A20D37 /* Functions.swift in Sources */,
 				CEA706D81C81029A00204138 /* NewCaseTableViewController.swift in Sources */,
 				CEC132201C829AE800A20D37 /* ResidentSubmitViewController.swift in Sources */,
 				CEA706D31C80F3D700204138 /* ResidentHomeViewController.swift in Sources */,
+				CEEA95F21C83AA1300EB81CF /* AttendingCaseDetailViewController.swift in Sources */,
 				CEA706E91C81215000204138 /* CaseDateViewController.swift in Sources */,
 				CEC132031C81F39F00A20D37 /* PhysicianFetcher.swift in Sources */,
+				CEEA95E21C8360F400EB81CF /* PendingCaseDetailViewController.swift in Sources */,
+				CEEA95EE1C839D2E00EB81CF /* AttendingHomeTableViewController.swift in Sources */,
 				CEA706DB1C8109EC00204138 /* Case.swift in Sources */,
 				CEC1321C1C82898300A20D37 /* ZwischInfoViewController.swift in Sources */,
 				CEEA95DE1C8354DF00EB81CF /* PendingCasesFetcher.swift in Sources */,
@@ -883,14 +934,19 @@
 				CEA706E31C81173B00204138 /* ProcedureCategory.swift in Sources */,
 				CEA706DD1C81124C00204138 /* AllowedUsers.swift in Sources */,
 				CEC1321E1C82919300A20D37 /* DifficultyViewController.swift in Sources */,
+				CEEA95FA1C851E6C00EB81CF /* AttendingZwischInfoViewController.swift in Sources */,
+				CEEA95E51C83697300EB81CF /* CompletedCasesTableViewController.swift in Sources */,
 				CEA705E31C80EDD600204138 /* AppDelegate.swift in Sources */,
 				CEA706D51C80F4E500204138 /* Constants.swift in Sources */,
 				CEC132221C82A01500A20D37 /* CaseSubmitter.swift in Sources */,
 				CEC132101C823BD400A20D37 /* ProcedureDetailsTableViewController.swift in Sources */,
 				CEC132061C8205DA00A20D37 /* EZLoadingActivity.swift in Sources */,
 				CEA706E51C81181D00204138 /* Specialty.swift in Sources */,
+				CEEA95F01C83A32100EB81CF /* AttendingHomeCasesFetcher.swift in Sources */,
 				CEEA95D71C83392900EB81CF /* SJNotificationViewController.m in Sources */,
+				CEEA95EB1C837CE800EB81CF /* CaseUpdater.swift in Sources */,
 				CEC1320E1C82360B00A20D37 /* ProcedureCategoryTableViewController.swift in Sources */,
+				CEEA95E91C83778800EB81CF /* CompletedCaseDetailViewController.swift in Sources */,
 				CEC1320A1C8229CD00A20D37 /* SpecialtyTableViewController.swift in Sources */,
 				CEA706DF1C81135000204138 /* Institution.swift in Sources */,
 			);

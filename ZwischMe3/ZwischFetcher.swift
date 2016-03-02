@@ -21,7 +21,8 @@ class ZwischFetcher {
         let datastore = Backendless.sharedInstance().data.of(ZwischStage.ofClass())
         let dataQuery = BackendlessDataQuery()
         dataQuery.queryOptions.sortBy(["order"])
-        datastore.find({ (results: BackendlessCollection!) -> Void in
+        
+        datastore.find(dataQuery, response: { (results: BackendlessCollection!) -> Void in
             if results.totalObjects == 0 {
                 self.delegate?.failedToFetchZwisch("No Zwisch Stage available.")
             }
@@ -37,5 +38,6 @@ class ZwischFetcher {
             }) { (fault: Fault!) -> Void in
                 self.delegate?.failedToFetchZwisch(fault.message)
         }
+        
     }
 }

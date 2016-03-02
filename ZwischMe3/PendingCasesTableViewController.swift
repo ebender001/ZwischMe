@@ -17,6 +17,7 @@ class PendingCasesTableViewController: UITableViewController {
 
         title = "Pending Cases"
         navigationController?.navigationBar.tintColor = mediumBlueColor
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +38,6 @@ class PendingCasesTableViewController: UITableViewController {
         return 0
     }
 
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(PendingCasesCell, forIndexPath: indexPath)
         cell.accessoryType = .DisclosureIndicator
@@ -62,5 +62,18 @@ class PendingCasesTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 65;
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let theCase = casesArray![indexPath.row]
+        self.performSegueWithIdentifier(pendingCaseDetailSegue, sender: theCase)
+    }
+    
+    //MARK: - NAVIGATION
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == pendingCaseDetailSegue {
+            let vc = segue.destinationViewController as? PendingCaseDetailViewController
+            vc?.theCase = sender as? Case
+        }
     }
 }

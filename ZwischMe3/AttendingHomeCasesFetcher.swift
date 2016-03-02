@@ -1,5 +1,5 @@
 //
-//  PendingCasesFetcher.swift
+//  AttendingHomeCasesFetcher.swift
 //  ZwischMe3
 //
 //  Created by Edward Bender on 2/28/16.
@@ -8,22 +8,23 @@
 
 import Foundation
 
-protocol PendingCasesFetcherProtocol {
+protocol AttendingHomeProtocol {
     func didFetchCases(cases: [Case])
     func failedToFetchCases(reason: String)
 }
 
-class PendingCasesFetcher {
-    var delegate: PendingCasesFetcherProtocol?
+class AttendingHomeCasesFetcher {
+    
+    var delegate: AttendingHomeProtocol?
     
     func startFetch() {
         let datastore = Backendless.sharedInstance().data.of(Case.ofClass())
         let dataQuery = BackendlessDataQuery()
-        dataQuery.queryOptions.sortBy(["caseDate"])
+        dataQuery.queryOptions.sortBy(["caseDate desc"])
         dataQuery.whereClause = "attendingComplete = false"
         datastore.find(dataQuery, response: { (results: BackendlessCollection!) -> Void in
             if results.totalObjects == 0 {
-                self.delegate?.failedToFetchCases("There are no pending cases.")
+                self.delegate?.failedToFetchCases("You are all caught up!")
             }
             else{
                 var pendingCases = [Case]()
@@ -38,6 +39,4 @@ class PendingCasesFetcher {
                 self.delegate?.failedToFetchCases(fault.message)
         }
     }
-    
-    
 }
