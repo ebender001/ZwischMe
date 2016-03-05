@@ -16,10 +16,10 @@ protocol PhysicianFetcherProtocol {
 class PhysicianFetcher {
     var delegate: PhysicianFetcherProtocol?
     
-    func startFetch(isAttending: Bool) {
+    func startFetch(isAttending attending: Bool) {
         let datastore = Backendless.sharedInstance().data.of(AllowedUsers.ofClass())
         let dataQuery = BackendlessDataQuery()
-        dataQuery.whereClause = "attending = true"
+        dataQuery.whereClause = "attending = \(attending)"
         var allPhysicians = [AllowedUsers]()
         datastore.find(dataQuery, response: { (result:BackendlessCollection!) -> Void in
             if result.totalObjects == 0 {

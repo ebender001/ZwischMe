@@ -12,6 +12,7 @@ import UIKit
 //colors
 let greyColor = UIColor(red: 142/255.0, green: 142/255.0, blue: 142/255.0, alpha: 1.0)
 let redColor = UIColor(red: 255/255.0, green: 45/255.0, blue: 85/255.0, alpha: 1.0)
+let deepRedColor = UIColor(red: 180.0, green: 0, blue: 0, alpha: 1.0)
 let orangeColor = UIColor(red: 255/255.0, green: 59/255.0, blue: 48/255.0, alpha: 1.0)
 let tanColor = UIColor(red: 255/255.0, green: 149/255.0, blue: 0, alpha: 1.0)
 let yellowColor = UIColor(red: 255/255.0, green: 204/255.0, blue: 0, alpha: 1.0)
@@ -56,13 +57,16 @@ let signupSegue = "signupSegue"
 let loginSegue = "loginSegue"
 let specialtySegue = "specialtySegue"
 let redoSegue = "redoSegue"
+let signupHelpSegue = "signupHelpSegue"
+let loginHelpSegue = "loginHelpSegue"
 
 //defaults keys
+let kHasSignedUp = "kHasSignedUp"
 let kRole = "kRole"
 let kSignupComplete = "kSignupComplete"
 let kLastName = "kLastName"
 let kFirstName = "kFirstName"
 let kUserId = "kUserId"
-let kFirstUseComplete = "kFirstUseComplete"
+//let kFirstUseComplete = "kFirstUseComplete"
 let kInstitutionId = "kInstitutionId"
 let kRegisterForNotification = "kRegisterForNotification"

@@ -14,11 +14,11 @@ class AllowedUsers: NSObject {
     var firstName: String?
     var lastName: String?
     var institutionId: String?
+    var attending = false
     var objectId: String?
+    var institution: Institution?
     
-    override init() {
-        super.init()
-    }
+    
 }
 
 extension AllowedUsers {

@@ -19,13 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var backendless = Backendless.sharedInstance()
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         backendless.initApp(APP_ID, secret: SECRET_KEY, version: VERSION_NUMBER)
-        
-        
+        backendless.userService.setStayLoggedIn(true)
         
         return true
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        backendless.messaging.registerDeviceWithTokenData(deviceToken)
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        print(error)
     }
 
     func applicationWillResignActive(application: UIApplication) {

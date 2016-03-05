@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtocol, SpecialtyFetcherProtocol, ZwischFetcherProtocol, ResidentSubmissionProtocol {
+class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtocol, SpecialtyFetcherProtocol, ZwischFetcherProtocol, ResidentSubmissionProtocol, MFMessageComposeViewControllerDelegate {
     let newCaseComponents = ["Date of Case", "Attending Surgeon", "Procedure", "Zwisch Stage", "Difficulty"]
     
 
@@ -160,7 +161,7 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
         EZLoadingActivity.show("Fetching...", disableUI: true)
         let physicianFetcher = PhysicianFetcher()
         physicianFetcher.delegate = self
-        physicianFetcher.startFetch(true)
+        physicianFetcher.startFetch(isAttending: true)
     }
     
     func fetchSpecialty() {
@@ -177,6 +178,38 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
         zwischFetcher.startFetch()
     }
     
+    //MARK: - MESSAGING
+    func sendMessage(theCase: Case) {
+        if MFMessageComposeViewController.canSendText() {
+            var cellNumber = ""
+            var resident = ""
+            if let number = theCase.attendingObject?.cellNumber {
+                cellNumber = number
+            }
+            if let residentName = theCase.residentObject?.lastName {
+                resident = "Dr. \(residentName)"
+            }
+            let mvc = MFMessageComposeViewController()
+            mvc.messageComposeDelegate = self
+            mvc.recipients = [cellNumber]
+            mvc.body = "You have a new case to evaluate from \(resident) on the Zwisch Me app. Tap <a href='zwischmeApp://'></a>"
+            self.presentViewController(mvc, animated: true, completion: nil)
+        }
+        else{
+            showAlert(withTitle: "Text Message", withMessage: "This device can not send a text message")
+        }
+    }
+    
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        if result == MessageComposeResultSent {
+            SJNotificationViewController(parentView: self.navigationController?.view, title: "Text successfully sent!", level: SJNotificationLevelSuccess, position: SJNotificationPositionBottom, spinner: false).showFor(2)
+        }
+        else if result == MessageComposeResultFailed {
+            SJNotificationViewController(parentView: self.navigationController?.view, title: "Text message failed", level: SJNotificationLevelError, position: SJNotificationPositionBottom, spinner: false).showFor(2)
+        }
+    }
+    
     //MARK: - PROTOCOL METHODS
     func didFetchPhysicians(physicians: [AllowedUsers]) {
         EZLoadingActivity.hide()
@@ -184,7 +217,7 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
     }
     func failedToFetchPhysicians(reason: String) {
         EZLoadingActivity.hide()
-        print(reason)
+        presentViewController(showAlert(withTitle: "Data Error", withMessage: reason), animated: true, completion: nil)
     }
     
     func didFetchSpecialties(specialties: [Specialty]) {
@@ -193,7 +226,7 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
     }
     func failedToFetchSpecialties(message: String) {
         EZLoadingActivity.hide()
-        print(message)
+        presentViewController(showAlert(withTitle: "Data Error", withMessage: message), animated: true, completion: nil)
     }
     
     func didFetchZwisch(zwisch: [ZwischStage]) {
@@ -202,7 +235,7 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
     }
     func failedToFetchZwisch(reason: String) {
         EZLoadingActivity.hide()
-        print(reason)
+        presentViewController(showAlert(withTitle: "Data Error", withMessage: reason), animated: true, completion: nil)
     }
     
     func didCompleteSubmission(theCase: Case) {
@@ -210,12 +243,13 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
         dismissViewControllerAnimated(true, completion: nil)
         SJNotificationViewController(parentView: self.navigationController!.view, title: "Successfully submitted your case.", level: SJNotificationLevelMessage, position: SJNotificationPositionBottom, spinner: false).showFor(3)
         delay(3.5) { () -> () in
+            self.sendMessage(theCase)
             self.navigationController?.popToRootViewControllerAnimated(true)
         }
         
     }
     func failedToSubmitCase(reason: String) {
-        
+        presentViewController(showAlert(withTitle: "Data Error", withMessage: reason), animated: true, completion: nil)
     }
 
 }

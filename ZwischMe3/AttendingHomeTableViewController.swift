@@ -32,8 +32,9 @@ class AttendingHomeTableViewController: UITableViewController, AttendingHomeProt
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        registerForNotifications(self)
     }
 
     // MARK: - Table view data source

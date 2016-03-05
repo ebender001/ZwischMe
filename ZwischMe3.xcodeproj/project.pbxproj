@@ -67,6 +67,15 @@
 		CEEA95F21C83AA1300EB81CF /* AttendingCaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95F11C83AA1300EB81CF /* AttendingCaseDetailViewController.swift */; };
 		CEEA95FA1C851E6C00EB81CF /* AttendingZwischInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95F91C851E6C00EB81CF /* AttendingZwischInfoViewController.swift */; };
 		CEEA95FC1C876AC600EB81CF /* AttendingCaseUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95FB1C876AC600EB81CF /* AttendingCaseUpdater.swift */; };
+		CEEA95FE1C87C39F00EB81CF /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95FD1C87C39F00EB81CF /* StartViewController.swift */; };
+		CEEA96001C87D30F00EB81CF /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA95FF1C87D30F00EB81CF /* Animator.swift */; };
+		CEEA96021C87D7B300EB81CF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA96011C87D7B300EB81CF /* SignupViewController.swift */; };
+		CEEA96041C87E12400EB81CF /* UserSignup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA96031C87E12400EB81CF /* UserSignup.swift */; };
+		CEEA96061C8A342C00EB81CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA96051C8A342C00EB81CF /* LoginViewController.swift */; };
+		CEEA96081C8A37CB00EB81CF /* UserLogout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA96071C8A37CB00EB81CF /* UserLogout.swift */; };
+		CEEA960A1C8A3F0300EB81CF /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA96091C8A3F0300EB81CF /* ForgotPassword.swift */; };
+		CEEA962A1C8B293300EB81CF /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA96291C8B293300EB81CF /* HelpViewController.swift */; };
+		CEEA962C1C8B3D0800EB81CF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEA962B1C8B3D0800EB81CF /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -304,6 +313,15 @@
 		CEEA95F11C83AA1300EB81CF /* AttendingCaseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendingCaseDetailViewController.swift; sourceTree = "<group>"; };
 		CEEA95F91C851E6C00EB81CF /* AttendingZwischInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendingZwischInfoViewController.swift; sourceTree = "<group>"; };
 		CEEA95FB1C876AC600EB81CF /* AttendingCaseUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendingCaseUpdater.swift; sourceTree = "<group>"; };
+		CEEA95FD1C87C39F00EB81CF /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		CEEA95FF1C87D30F00EB81CF /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		CEEA96011C87D7B300EB81CF /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		CEEA96031C87E12400EB81CF /* UserSignup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSignup.swift; sourceTree = "<group>"; };
+		CEEA96051C8A342C00EB81CF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CEEA96071C8A37CB00EB81CF /* UserLogout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLogout.swift; sourceTree = "<group>"; };
+		CEEA96091C8A3F0300EB81CF /* ForgotPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
+		CEEA96291C8B293300EB81CF /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		CEEA962B1C8B3D0800EB81CF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +329,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEA962C1C8B3D0800EB81CF /* MessageUI.framework in Frameworks */,
 				CEA706CD1C80EF4900204138 /* libavutil.a in Frameworks */,
 				CEA706CB1C80EF4900204138 /* libavfilter.a in Frameworks */,
 				CEA706CE1C80EF4900204138 /* libswscale.a in Frameworks */,
@@ -334,6 +353,7 @@
 		CEA705D61C80EDD600204138 = {
 			isa = PBXGroup;
 			children = (
+				CEEA962B1C8B3D0800EB81CF /* MessageUI.framework */,
 				CEEA95DF1C835EAA00EB81CF /* Read Me */,
 				CEEA95D41C83392900EB81CF /* SJNotificationViewController.h */,
 				CEEA95D51C83392900EB81CF /* SJNotificationViewController.m */,
@@ -368,6 +388,10 @@
 				CEA705E91C80EDD600204138 /* Assets.xcassets */,
 				CEA705EB1C80EDD600204138 /* LaunchScreen.storyboard */,
 				CEA705EE1C80EDD600204138 /* Info.plist */,
+				CEEA95FD1C87C39F00EB81CF /* StartViewController.swift */,
+				CEEA96011C87D7B300EB81CF /* SignupViewController.swift */,
+				CEEA96051C8A342C00EB81CF /* LoginViewController.swift */,
+				CEEA96291C8B293300EB81CF /* HelpViewController.swift */,
 			);
 			path = ZwischMe3;
 			sourceTree = "<group>";
@@ -774,6 +798,9 @@
 				CEEA95EA1C837CE800EB81CF /* CaseUpdater.swift */,
 				CEEA95EF1C83A32100EB81CF /* AttendingHomeCasesFetcher.swift */,
 				CEEA95FB1C876AC600EB81CF /* AttendingCaseUpdater.swift */,
+				CEEA96031C87E12400EB81CF /* UserSignup.swift */,
+				CEEA96071C8A37CB00EB81CF /* UserLogout.swift */,
+				CEEA96091C8A3F0300EB81CF /* ForgotPassword.swift */,
 			);
 			name = DataConnection;
 			sourceTree = "<group>";
@@ -785,6 +812,7 @@
 				CEA706D41C80F4E500204138 /* Constants.swift */,
 				CEC132051C8205DA00A20D37 /* EZLoadingActivity.swift */,
 				CEC132071C82070300A20D37 /* Functions.swift */,
+				CEEA95FF1C87D30F00EB81CF /* Animator.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -909,10 +937,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEA96021C87D7B300EB81CF /* SignupViewController.swift in Sources */,
 				CEA706E11C8116E900204138 /* ProcedureDetails.swift in Sources */,
 				CEC132181C82835500A20D37 /* ZwischTableViewController.swift in Sources */,
+				CEEA95FE1C87C39F00EB81CF /* StartViewController.swift in Sources */,
 				CEC132001C81F2D700A20D37 /* AttendingTableViewController.swift in Sources */,
 				CEC1320C1C822B1000A20D37 /* SpecialtyFetcher.swift in Sources */,
+				CEEA96081C8A37CB00EB81CF /* UserLogout.swift in Sources */,
 				CEEA95FC1C876AC600EB81CF /* AttendingCaseUpdater.swift in Sources */,
 				CEEA95DC1C83512C00EB81CF /* PendingCasesTableViewController.swift in Sources */,
 				CEEA95E71C836D1B00EB81CF /* CompletedCasesFetcher.swift in Sources */,
@@ -920,16 +951,20 @@
 				CEC1321A1C82848D00A20D37 /* ZwischFetcher.swift in Sources */,
 				CEC132081C82070300A20D37 /* Functions.swift in Sources */,
 				CEA706D81C81029A00204138 /* NewCaseTableViewController.swift in Sources */,
+				CEEA96001C87D30F00EB81CF /* Animator.swift in Sources */,
 				CEC132201C829AE800A20D37 /* ResidentSubmitViewController.swift in Sources */,
 				CEA706D31C80F3D700204138 /* ResidentHomeViewController.swift in Sources */,
 				CEEA95F21C83AA1300EB81CF /* AttendingCaseDetailViewController.swift in Sources */,
 				CEA706E91C81215000204138 /* CaseDateViewController.swift in Sources */,
+				CEEA96061C8A342C00EB81CF /* LoginViewController.swift in Sources */,
 				CEC132031C81F39F00A20D37 /* PhysicianFetcher.swift in Sources */,
 				CEEA95E21C8360F400EB81CF /* PendingCaseDetailViewController.swift in Sources */,
 				CEEA95EE1C839D2E00EB81CF /* AttendingHomeTableViewController.swift in Sources */,
 				CEA706DB1C8109EC00204138 /* Case.swift in Sources */,
 				CEC1321C1C82898300A20D37 /* ZwischInfoViewController.swift in Sources */,
+				CEEA960A1C8A3F0300EB81CF /* ForgotPassword.swift in Sources */,
 				CEEA95DE1C8354DF00EB81CF /* PendingCasesFetcher.swift in Sources */,
+				CEEA96041C87E12400EB81CF /* UserSignup.swift in Sources */,
 				CEC132141C827CD900A20D37 /* RedoViewController.swift in Sources */,
 				CEA706E31C81173B00204138 /* ProcedureCategory.swift in Sources */,
 				CEA706DD1C81124C00204138 /* AllowedUsers.swift in Sources */,
@@ -945,6 +980,7 @@
 				CEEA95F01C83A32100EB81CF /* AttendingHomeCasesFetcher.swift in Sources */,
 				CEEA95D71C83392900EB81CF /* SJNotificationViewController.m in Sources */,
 				CEEA95EB1C837CE800EB81CF /* CaseUpdater.swift in Sources */,
+				CEEA962A1C8B293300EB81CF /* HelpViewController.swift in Sources */,
 				CEC1320E1C82360B00A20D37 /* ProcedureCategoryTableViewController.swift in Sources */,
 				CEEA95E91C83778800EB81CF /* CompletedCaseDetailViewController.swift in Sources */,
 				CEC1320A1C8229CD00A20D37 /* SpecialtyTableViewController.swift in Sources */,

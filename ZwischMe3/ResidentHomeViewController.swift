@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ResidentHomeViewController: UIViewController, PendingCasesFetcherProtocol, CompletedCasesFetcherProtocol {
+class ResidentHomeViewController: UIViewController, PendingCasesFetcherProtocol, CompletedCasesFetcherProtocol, UserLogoutProtocol {
     @IBOutlet weak var newCaseButton: UIButton!
     @IBOutlet weak var pendingCasesButton: UIButton!
     @IBOutlet weak var completedCasesButton: UIButton!
@@ -44,11 +44,23 @@ class ResidentHomeViewController: UIViewController, PendingCasesFetcherProtocol,
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.tintColor = greyColor
+        registerForNotifications(self)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func logout(sender: AnyObject?) {
+        let alert = UIAlertController(title: "Logout", message: "Are you sure you want to log out? There really is no reason to do so if you are using the same account to submit cases.", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+            let userLogout = UserLogout()
+            userLogout.delegate = self
+            userLogout.logout()
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .Destructive, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     @IBAction func newCaseButtonTapped(sender: AnyObject) {
@@ -103,6 +115,17 @@ class ResidentHomeViewController: UIViewController, PendingCasesFetcherProtocol,
     func failedToFetchCompletedCases(reason: String) {
         EZLoadingActivity.hide()
         SJNotificationViewController(parentView: self.navigationController!.view, title: reason, level: SJNotificationLevelMessage, position: SJNotificationPositionBottom, spinner: false).showFor(2)
+    }
+    
+    func didLogout(controller: UserLogout) {
+        controller.delegate = nil
+        navigationController?.popViewControllerAnimated(true)
+    }
+    func failedToLogout(reason: String, controller: UserLogout) {
+        controller.delegate = nil
+        let alert = UIAlertController(title: "Logout Failed", message: reason, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
     }
 
 }
