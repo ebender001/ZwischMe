@@ -44,7 +44,6 @@ class ResidentHomeViewController: UIViewController, PendingCasesFetcherProtocol,
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.tintColor = greyColor
-        registerForNotifications(self)
     }
 
     override func didReceiveMemoryWarning() {

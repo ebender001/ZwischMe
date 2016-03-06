@@ -65,6 +65,7 @@ extension Case {
         institutionObject = nil
         residentObject = nil
         viewedByResident = false
+        caseDateSummary = ""
     }
     
     func caseDateString() -> String {

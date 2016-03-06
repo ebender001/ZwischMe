@@ -34,7 +34,6 @@ class AttendingHomeTableViewController: UITableViewController, AttendingHomeProt
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        registerForNotifications(self)
     }
 
     // MARK: - Table view data source

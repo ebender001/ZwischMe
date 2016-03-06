@@ -18,13 +18,17 @@ func delay(delay:Double, closure:()->()) {
         dispatch_get_main_queue(), closure)
 }
 
+func currentAllowedUser() -> AllowedUsers {
+    return Backendless.sharedInstance().userService.currentUser.getProperty("allowedUser") as! AllowedUsers
+}
+
 func showAlert(withTitle title: String, withMessage message: String) -> UIAlertController {
     let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
     alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
     return alert
 }
 
-func registerForNotifications(controller: UIViewController) {
+func registerForNotificationsAndEnterApp(controller: UIViewController) {
     let defaults = NSUserDefaults.standardUserDefaults()
     var role = ""
     let allowedUser = Backendless.sharedInstance().userService.currentUser.getProperty("allowedUser") as! AllowedUsers
@@ -60,6 +64,14 @@ func registerForNotifications(controller: UIViewController) {
         controller.presentViewController(alert, animated: true, completion: nil)
         defaults.setBool(true, forKey: kRegisterForNotification)
         defaults.synchronize()
+    }
+    else{
+        if role == "attending" {
+            controller.performSegueWithIdentifier(attendingStartSegue, sender: nil)
+        }
+        else if role == "resident" {
+            controller.performSegueWithIdentifier(residentStartSegue, sender: nil)
+        }
     }
     
 }

@@ -350,6 +350,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE28F4471C8CCB0200DACB98 /* SignupLogin */ = {
+			isa = PBXGroup;
+			children = (
+				CEEA95FD1C87C39F00EB81CF /* StartViewController.swift */,
+				CEEA96011C87D7B300EB81CF /* SignupViewController.swift */,
+				CEEA96051C8A342C00EB81CF /* LoginViewController.swift */,
+			);
+			name = SignupLogin;
+			sourceTree = "<group>";
+		};
 		CEA705D61C80EDD600204138 = {
 			isa = PBXGroup;
 			children = (
@@ -383,14 +393,12 @@
 				CEA706D91C8109DB00204138 /* Data */,
 				CEEA95EC1C839CFE00EB81CF /* Attending */,
 				CEA706D61C80F55800204138 /* Resident */,
+				CE28F4471C8CCB0200DACB98 /* SignupLogin */,
 				CEA705E21C80EDD600204138 /* AppDelegate.swift */,
 				CEA705E61C80EDD600204138 /* Main.storyboard */,
 				CEA705E91C80EDD600204138 /* Assets.xcassets */,
 				CEA705EB1C80EDD600204138 /* LaunchScreen.storyboard */,
 				CEA705EE1C80EDD600204138 /* Info.plist */,
-				CEEA95FD1C87C39F00EB81CF /* StartViewController.swift */,
-				CEEA96011C87D7B300EB81CF /* SignupViewController.swift */,
-				CEEA96051C8A342C00EB81CF /* LoginViewController.swift */,
 				CEEA96291C8B293300EB81CF /* HelpViewController.swift */,
 			);
 			path = ZwischMe3;

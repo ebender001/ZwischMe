@@ -15,12 +15,13 @@ protocol PendingCasesFetcherProtocol {
 
 class PendingCasesFetcher {
     var delegate: PendingCasesFetcherProtocol?
+    let residentObject = currentAllowedUser()
     
     func startFetch() {
         let datastore = Backendless.sharedInstance().data.of(Case.ofClass())
         let dataQuery = BackendlessDataQuery()
         dataQuery.queryOptions.sortBy(["caseDate"])
-        dataQuery.whereClause = "attendingComplete = false"
+        dataQuery.whereClause = "attendingComplete = false and residentObject.objectId = '\(residentObject.objectId!)'"
         datastore.find(dataQuery, response: { (results: BackendlessCollection!) -> Void in
             if results.totalObjects == 0 {
                 self.delegate?.failedToFetchCases("There are no pending cases.")

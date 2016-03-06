@@ -16,12 +16,14 @@ protocol AttendingHomeProtocol {
 class AttendingHomeCasesFetcher {
     
     var delegate: AttendingHomeProtocol?
+    let attendingObject = currentAllowedUser()
     
     func startFetch() {
         let datastore = Backendless.sharedInstance().data.of(Case.ofClass())
         let dataQuery = BackendlessDataQuery()
         dataQuery.queryOptions.sortBy(["caseDate desc"])
-        dataQuery.whereClause = "attendingComplete = false"
+        let attendingId = attendingObject.objectId!
+        dataQuery.whereClause = "attendingComplete = false and attendingObject.objectId = '\(attendingId)'"
         datastore.find(dataQuery, response: { (results: BackendlessCollection!) -> Void in
             if results.totalObjects == 0 {
                 self.delegate?.failedToFetchCases("You are all caught up!")

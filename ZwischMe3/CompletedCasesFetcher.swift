@@ -15,11 +15,15 @@ protocol CompletedCasesFetcherProtocol {
 
 class CompletedCasesFetcher {
     var delegate: CompletedCasesFetcherProtocol?
+    let user = currentAllowedUser()
     
     func startFetch() {
         let datastore = Backendless.sharedInstance().data.of(Case.ofClass())
         let dataQuery = BackendlessDataQuery()
-        dataQuery.whereClause = "attendingComplete = true"
+        let institution = user.institution!
+        let institutionId = institution.objectId!
+        let residentObjectId = user.objectId!
+        dataQuery.whereClause = "attendingComplete = true and institutionObject.objectId = '\(institutionId)' and residentObject.objectId = '\(residentObjectId)'"
         dataQuery.queryOptions.sortBy(["caseDate desc"])
         datastore.find(dataQuery, response: { (results: BackendlessCollection!) -> Void in
             if results.totalObjects == 0 {

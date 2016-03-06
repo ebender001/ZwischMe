@@ -11,6 +11,7 @@ import MessageUI
 
 class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtocol, SpecialtyFetcherProtocol, ZwischFetcherProtocol, ResidentSubmissionProtocol, MFMessageComposeViewControllerDelegate {
     let newCaseComponents = ["Date of Case", "Attending Surgeon", "Procedure", "Zwisch Stage", "Difficulty"]
+    let theCase = Case.sharedInstance
     
 
     override func viewDidLoad() {
@@ -22,6 +23,9 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
         tableView.separatorStyle = .None
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        
+        //set residentObject and institutionObject
+        initializeNewCase()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -29,13 +33,19 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
         
         self.tableView.reloadData()
         
-        if Case.sharedInstance.caseComplete() {
+        if theCase.caseComplete() {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .Plain, target: self, action: "submitCase:")
         }
         else{
             navigationItem.rightBarButtonItem = nil
         }
-
+    }
+    
+    func initializeNewCase() {
+        let residentObject = currentAllowedUser()
+        let institutionObject = residentObject.institution!
+        theCase.institutionObject = institutionObject
+        theCase.residentObject = residentObject
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,9 +80,9 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
         
         switch indexPath.row {
         case 0:
-            cell.detailTextLabel?.text = Case.sharedInstance.caseDateSummary
+            cell.detailTextLabel?.text = theCase.caseDateSummary
         case 1:
-            if let attending = Case.sharedInstance.attendingObject {
+            if let attending = theCase.attendingObject {
                 cell.detailTextLabel?.text = attending.fullName()
             }
             else{
@@ -80,22 +90,22 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
             }
         case 2:
             var finalStr = ""
-            let type = Case.sharedInstance.procedureType
-            let detail = Case.sharedInstance.procedureDetail
+            let type = theCase.procedureType
+            let detail = theCase.procedureDetail
             if type != "" && detail != "" {
                 finalStr = "\(type): \(detail)"
             }
-            if Case.sharedInstance.redo {
+            if theCase.redo {
                 finalStr = "\(finalStr), redo"
             }
-            if Case.sharedInstance.minimallyInvasive {
+            if theCase.minimallyInvasive {
                 finalStr = "\(finalStr), minimally invasive"
             }
             cell.detailTextLabel?.text = finalStr
         case 3:
-            cell.detailTextLabel?.text = Case.sharedInstance.residentZwischStage
+            cell.detailTextLabel?.text = theCase.residentZwischStage
         case 4:
-            cell.detailTextLabel?.text = Case.sharedInstance.residentDifficulty
+            cell.detailTextLabel?.text = theCase.residentDifficulty
         default:
             break
         }
@@ -196,7 +206,8 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
             self.presentViewController(mvc, animated: true, completion: nil)
         }
         else{
-            showAlert(withTitle: "Text Message", withMessage: "This device can not send a text message")
+            let alert = showAlert(withTitle: "Text Message", withMessage: "This device can not send a text message")
+            presentViewController(alert, animated: true, completion: nil)
         }
     }
     
@@ -208,6 +219,8 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
         else if result == MessageComposeResultFailed {
             SJNotificationViewController(parentView: self.navigationController?.view, title: "Text message failed", level: SJNotificationLevelError, position: SJNotificationPositionBottom, spinner: false).showFor(2)
         }
+        
+        //self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     //MARK: - PROTOCOL METHODS
@@ -239,12 +252,12 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
     }
     
     func didCompleteSubmission(theCase: Case) {
-        Case.sharedInstance.clearCase()
+        theCase.clearCase()
         dismissViewControllerAnimated(true, completion: nil)
-        SJNotificationViewController(parentView: self.navigationController!.view, title: "Successfully submitted your case.", level: SJNotificationLevelMessage, position: SJNotificationPositionBottom, spinner: false).showFor(3)
-        delay(3.5) { () -> () in
+        SJNotificationViewController(parentView: self.navigationController!.view, title: "Successfully submitted your case.", level: SJNotificationLevelMessage, position: SJNotificationPositionBottom, spinner: false).showFor(2)
+        delay(2.5) { () -> () in
             self.sendMessage(theCase)
-            self.navigationController?.popToRootViewControllerAnimated(true)
+//            self.navigationController?.popToRootViewControllerAnimated(true)
         }
         
     }
