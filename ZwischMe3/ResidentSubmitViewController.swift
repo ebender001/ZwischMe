@@ -78,10 +78,12 @@ class ResidentSubmitViewController: UIViewController, CaseSubmitterProtocol {
     //MARK: - DELEGATE METHODS
     func didSaveCase(theCase: Case) {
         EZLoadingActivity.hide()
+        dismissViewControllerAnimated(true, completion: nil)
         delegate?.didCompleteSubmission(theCase)
     }
     func failedToSaveCase(reason: String) {
         EZLoadingActivity.hide()
+        dismissViewControllerAnimated(true, completion: nil)
         delegate?.failedToSubmitCase(reason)
     }
 

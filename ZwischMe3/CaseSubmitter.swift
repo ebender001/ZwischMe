@@ -21,6 +21,7 @@ class CaseSubmitter {
         
         let datastore = Backendless.sharedInstance().data.of(Case.ofClass())
         let theCase = Case.sharedInstance
+        
         datastore.save(theCase, response: { (result: AnyObject!) -> Void in
             print("Case saved")
             self.delegate?.didSaveCase(theCase)

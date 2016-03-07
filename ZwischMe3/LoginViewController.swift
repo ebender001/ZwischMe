@@ -34,6 +34,10 @@ class LoginViewController: UIViewController, ForgotPasswordProtocol, UserSignupP
         // Dispose of any resources that can be recreated.
     }
     
+    func help(sender: AnyObject?) {
+        self.performSegueWithIdentifier(loginHelpSegue, sender: nil)
+    }
+    
     @IBAction func loginTapped(sender: AnyObject) {
         EZLoadingActivity.show("Logging in...", disableUI: true)
         let userSignup = UserSignup(theEmail: usernameTextField.text!, theCell: passwordTextField.text!, theUsername: "", thePassword: "")

@@ -253,11 +253,9 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
     
     func didCompleteSubmission(theCase: Case) {
         theCase.clearCase()
-        dismissViewControllerAnimated(true, completion: nil)
         SJNotificationViewController(parentView: self.navigationController!.view, title: "Successfully submitted your case.", level: SJNotificationLevelMessage, position: SJNotificationPositionBottom, spinner: false).showFor(2)
         delay(2.5) { () -> () in
             self.sendMessage(theCase)
-//            self.navigationController?.popToRootViewControllerAnimated(true)
         }
         
     }
