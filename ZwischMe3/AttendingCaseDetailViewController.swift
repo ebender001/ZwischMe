@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 protocol AttendingCasesProtocol {
     func didSubmitCase(theCase: Case)
@@ -79,7 +80,7 @@ class AttendingCaseDetailViewController: UIViewController, AttendingCaseUpdaterP
     
     func submit(sender: AnyObject?) {
         tap(nil)
-        theCase?.attendingComplete = true
+        theCase?.attendingComplete = 1
         var strZwisch = ""
         switch(zwischStageSeg.selectedSegmentIndex) {
         case 0:

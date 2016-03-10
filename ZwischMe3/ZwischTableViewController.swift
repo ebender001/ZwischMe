@@ -16,6 +16,7 @@ class ZwischTableViewController: UITableViewController {
 
         title = "Select Zwisch"
         navigationItem.hidesBackButton = true
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Zwisch", style: .Plain, target: nil, action: nil)
     }
 
     override func didReceiveMemoryWarning() {

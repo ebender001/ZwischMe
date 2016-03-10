@@ -95,10 +95,10 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
             if type != "" && detail != "" {
                 finalStr = "\(type): \(detail)"
             }
-            if theCase.redo {
+            if theCase.redo == 1 {
                 finalStr = "\(finalStr), redo"
             }
-            if theCase.minimallyInvasive {
+            if theCase.minimallyInvasive == 1 {
                 finalStr = "\(finalStr), minimally invasive"
             }
             cell.detailTextLabel?.text = finalStr
@@ -171,7 +171,7 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
         EZLoadingActivity.show("Fetching...", disableUI: true)
         let physicianFetcher = PhysicianFetcher()
         physicianFetcher.delegate = self
-        physicianFetcher.startFetch(isAttending: true)
+        physicianFetcher.startFetch(isAttending: 1)
     }
     
     func fetchSpecialty() {
@@ -252,10 +252,13 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
     }
     
     func didCompleteSubmission(theCase: Case) {
+        let tempCase = Case()
+        tempCase.residentObject = theCase.residentObject
+        tempCase.attendingObject = theCase.attendingObject
         theCase.clearCase()
         SJNotificationViewController(parentView: self.navigationController!.view, title: "Successfully submitted your case.", level: SJNotificationLevelMessage, position: SJNotificationPositionBottom, spinner: false).showFor(2)
         delay(2.5) { () -> () in
-            self.sendMessage(theCase)
+            self.sendMessage(tempCase)
         }
         
     }

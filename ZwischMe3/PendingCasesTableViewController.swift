@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PendingCasesTableViewController: UITableViewController {
+class PendingCasesTableViewController: CustomTableViewController {
     
     var casesArray: [Case]?
 

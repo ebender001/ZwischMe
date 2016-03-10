@@ -60,7 +60,7 @@ class SignupViewController: UIViewController, UserSignupProtocol {
             spinner.stopAnimating()
             return
         }
-        let userSignUp = UserSignup(theEmail: email, theCell: cellNumber, theUsername: username, thePassword: password)
+        let userSignUp = UserSignup(theEmail: email.lowercaseString, theCell: cellNumber, theUsername: username, thePassword: password)
         userSignUp.delegate = self
         userSignUp.checkUserAllowed()
     }

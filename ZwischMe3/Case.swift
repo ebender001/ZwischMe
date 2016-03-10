@@ -16,35 +16,25 @@ class Case: NSObject{
     var created: NSDate?
     var updated: NSDate?
     var caseDate: NSDate?
-    var caseOfDay: Int
+    var caseOfDay: Int = 1
     var procedureType = ""
     var procedureDetail = ""
-    var redo: Bool = false
-    var minimallyInvasive: Bool = false
+    var redo: Int = 0
+    var minimallyInvasive: Int = 0
     var residentZwischStage = ""
     var residentDifficulty = ""
     var attendingZwischStage = ""
     var attendingDifficulty = ""
     var attendingComments = ""
-    var attendingComplete: Bool = false
+    var attendingComplete: Int = 0
     var attendingObject: AllowedUsers?
     var institutionObject: Institution?
     var residentObject: AllowedUsers?
-    var viewedByResident: Bool = false
+    var viewedByResident: Int = 0
     var caseDateSummary = ""
-    
-    override init() {
-//        redo = false
-//        minimallyInvasive = false
-//        attendingComplete = false
-//        viewedByResident = false
-        caseOfDay = 1
-        
-        super.init()
-    }
 }
 
-extension Case {
+extension Case: NSCopying {
     func clearCase() {
         objectId = ""
         created = nil
@@ -53,19 +43,23 @@ extension Case {
         caseOfDay = 1
         procedureType = ""
         procedureDetail = ""
-        redo = false
-        minimallyInvasive = false
+        redo = 0
+        minimallyInvasive = 0
         residentZwischStage = ""
         residentDifficulty = ""
         attendingZwischStage = ""
         attendingDifficulty = ""
         attendingComments = ""
-        attendingComplete = false
+        attendingComplete = 0
         attendingObject = nil
         institutionObject = nil
         residentObject = nil
-        viewedByResident = false
+        viewedByResident = 0
         caseDateSummary = ""
+    }
+    
+    func copyWithZone(zone: NSZone) -> AnyObject {
+        return Case()
     }
     
     func caseDateString() -> String {
@@ -81,12 +75,12 @@ extension Case {
     func caseProcedureString() -> String {
         var detail = procedureDetail
         var str = "\(procedureType): "
-        if redo {
+        if redo == 1 {
             str += "Redo "
             detail = detail.lowercaseString
         }
         str += detail
-        if minimallyInvasive {
+        if minimallyInvasive == 1 {
             str += " (minimally invasive)"
         }
         return str

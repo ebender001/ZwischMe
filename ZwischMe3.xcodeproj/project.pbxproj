@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE4282541C8E427C00B31C97 /* CustomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4282531C8E427C00B31C97 /* CustomTableViewController.swift */; };
 		CEA705E31C80EDD600204138 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA705E21C80EDD600204138 /* AppDelegate.swift */; };
 		CEA705E81C80EDD600204138 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA705E61C80EDD600204138 /* Main.storyboard */; };
 		CEA705EA1C80EDD600204138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA705E91C80EDD600204138 /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE4282531C8E427C00B31C97 /* CustomTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewController.swift; sourceTree = "<group>"; };
 		CEA705DF1C80EDD600204138 /* ZwischMe3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZwischMe3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA705E21C80EDD600204138 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEA705E71C80EDD600204138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -821,6 +823,7 @@
 				CEC132051C8205DA00A20D37 /* EZLoadingActivity.swift */,
 				CEC132071C82070300A20D37 /* Functions.swift */,
 				CEEA95FF1C87D30F00EB81CF /* Animator.swift */,
+				CE4282531C8E427C00B31C97 /* CustomTableViewController.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -957,6 +960,7 @@
 				CEEA95E71C836D1B00EB81CF /* CompletedCasesFetcher.swift in Sources */,
 				CEA706E71C81199B00204138 /* ZwischStage.swift in Sources */,
 				CEC1321A1C82848D00A20D37 /* ZwischFetcher.swift in Sources */,
+				CE4282541C8E427C00B31C97 /* CustomTableViewController.swift in Sources */,
 				CEC132081C82070300A20D37 /* Functions.swift in Sources */,
 				CEA706D81C81029A00204138 /* NewCaseTableViewController.swift in Sources */,
 				CEEA96001C87D30F00EB81CF /* Animator.swift in Sources */,

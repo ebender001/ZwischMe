@@ -23,14 +23,14 @@ class RedoViewController: UIViewController {
         redoSwitch.tintColor = greenColor
         minimallyInvasiveSwitch.tintColor = greenColor
         
-        if Case.sharedInstance.redo {
+        if Case.sharedInstance.redo == 1 {
             redoSwitch.on = true
         }
         else{
             redoSwitch.on = false
         }
         
-        if Case.sharedInstance.minimallyInvasive {
+        if Case.sharedInstance.minimallyInvasive == 1 {
             minimallyInvasiveSwitch.on = true
         }
         else{
@@ -44,8 +44,8 @@ class RedoViewController: UIViewController {
     }
     
     @IBAction func dismiss(sender: AnyObject) {
-        Case.sharedInstance.redo = redoSwitch.on
-        Case.sharedInstance.minimallyInvasive = minimallyInvasiveSwitch.on
+        Case.sharedInstance.redo = redoSwitch.on ? 1 : 0
+        Case.sharedInstance.minimallyInvasive = minimallyInvasiveSwitch.on ? 1 : 0
         self.delegate?.didDismiss(self)
     }
 

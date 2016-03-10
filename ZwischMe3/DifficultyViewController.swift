@@ -47,7 +47,7 @@ class DifficultyViewController: UIViewController {
     }
     
     @IBAction func easyTapped(sender: AnyObject) {
-        Case.sharedInstance.residentDifficulty = "Easiest 0ne-third"
+        Case.sharedInstance.residentDifficulty = "Easiest one-third"
         delay(0.2) { () -> () in
             self.navigationController?.popViewControllerAnimated(true)
         }

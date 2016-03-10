@@ -10,7 +10,7 @@ import Foundation
 
 class ProcedureDetails: NSObject {
     var name: String?
-    var order: Int?
+    var order: Int = 0
     
     override init() {
         super.init()

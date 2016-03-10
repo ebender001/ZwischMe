@@ -10,6 +10,6 @@ import Foundation
 
 class Specialty: NSObject {
     var name: String?
-    var order: Int?
+    var order: Int = 0
     var procedureCategory = [ProcedureCategory]()
 }

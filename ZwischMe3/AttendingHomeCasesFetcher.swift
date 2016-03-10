@@ -23,7 +23,7 @@ class AttendingHomeCasesFetcher {
         let dataQuery = BackendlessDataQuery()
         dataQuery.queryOptions.sortBy(["caseDate desc"])
         let attendingId = attendingObject.objectId!
-        dataQuery.whereClause = "attendingComplete = false and attendingObject.objectId = '\(attendingId)'"
+        dataQuery.whereClause = "attendingComplete = 0 and attendingObject.objectId = '\(attendingId)'"
         datastore.find(dataQuery, response: { (results: BackendlessCollection!) -> Void in
             if results.totalObjects == 0 {
                 self.delegate?.failedToFetchCases("You are all caught up!")

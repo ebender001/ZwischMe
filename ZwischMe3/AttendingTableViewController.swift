@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AttendingTableViewController: UITableViewController {
+class AttendingTableViewController: CustomTableViewController {
     var attendingsArray: [AllowedUsers]?
     var selectedAttendingIndex: Int?
     var selectedAttending: AllowedUsers?
@@ -18,7 +18,6 @@ class AttendingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         title = "Select Attending"
         navigationItem.hidesBackButton = true
     }
@@ -50,6 +49,10 @@ class AttendingTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(AttendingCell, forIndexPath: indexPath)
 
+        cell.textLabel?.font = UIFont.systemFontOfSize(20.0)
+        cell.textLabel?.adjustsFontSizeToFitWidth = true
+        cell.textLabel?.minimumScaleFactor = 0.5
+        
         let oneAttending = attendingsArray![indexPath.row]
         cell.textLabel?.text = oneAttending.fullName()
         cell.textLabel?.textColor = greenColor
@@ -63,5 +66,11 @@ class AttendingTableViewController: UITableViewController {
             self.navigationController?.popViewControllerAnimated(true)
         }
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50.0
+    }
+    
+    
     
 }

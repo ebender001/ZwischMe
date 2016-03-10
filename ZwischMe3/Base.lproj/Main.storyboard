@@ -370,41 +370,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r5S-Wt-VlK">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="Submit Case" id="tr7-Gr-Jtc">
+                                    <navigationItem title="Case Summary" id="tr7-Gr-Jtc">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="ltJ-KB-EFC">
                                             <color key="tintColor" red="0.043137254899999998" green="0.2666666667" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="cancelTapped:" destination="0KN-UE-IBW" id="Dm6-d2-jSH"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Submit" id="tJJ-qH-YTD">
-                                            <color key="tintColor" red="0.70588235294117641" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <action selector="submitTapped:" destination="0KN-UE-IBW" id="Aiv-fi-Lo7"/>
-                                            </connections>
-                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GM8-3g-V62">
-                                <rect key="frame" x="20" y="64" width="560" height="528"/>
+                                <rect key="frame" x="20" y="75" width="560" height="315"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xph-p4-QMD">
+                                <rect key="frame" x="20" y="398" width="560" height="30"/>
+                                <state key="normal" title="Submit Case"/>
+                                <connections>
+                                    <action selector="submitTapped:" destination="0KN-UE-IBW" eventType="touchUpInside" id="sN3-Gc-Bcd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="r5S-Wt-VlK" secondAttribute="trailing" constant="-20" id="4kF-1i-7gf"/>
-                            <constraint firstItem="GM8-3g-V62" firstAttribute="top" secondItem="r5S-Wt-VlK" secondAttribute="bottom" id="C7b-1d-fS4"/>
-                            <constraint firstItem="GM8-3g-V62" firstAttribute="leading" secondItem="r1a-PL-TNk" secondAttribute="leadingMargin" id="EwT-OI-vtR"/>
+                            <constraint firstItem="GM8-3g-V62" firstAttribute="trailing" secondItem="r1a-PL-TNk" secondAttribute="trailingMargin" id="B3t-dl-bsQ"/>
+                            <constraint firstItem="xph-p4-QMD" firstAttribute="trailing" secondItem="r1a-PL-TNk" secondAttribute="trailingMargin" id="Hfp-jp-GkH"/>
+                            <constraint firstItem="xph-p4-QMD" firstAttribute="centerX" secondItem="r1a-PL-TNk" secondAttribute="centerX" id="MlQ-x3-Qcq"/>
                             <constraint firstItem="r5S-Wt-VlK" firstAttribute="leading" secondItem="r1a-PL-TNk" secondAttribute="leadingMargin" constant="-20" id="NyP-9w-W0G"/>
-                            <constraint firstItem="GM8-3g-V62" firstAttribute="trailing" secondItem="r1a-PL-TNk" secondAttribute="trailingMargin" id="Ts1-vp-9Ul"/>
-                            <constraint firstItem="r5S-Wt-VlK" firstAttribute="top" secondItem="Hz7-tr-2NJ" secondAttribute="bottom" id="kQY-LN-56o"/>
-                            <constraint firstItem="oB2-SD-OnW" firstAttribute="top" secondItem="GM8-3g-V62" secondAttribute="bottom" constant="8" id="p6m-kn-MmU"/>
+                            <constraint firstItem="GM8-3g-V62" firstAttribute="leading" secondItem="r1a-PL-TNk" secondAttribute="leadingMargin" id="Uoz-L3-Rrn"/>
+                            <constraint firstItem="xph-p4-QMD" firstAttribute="leading" secondItem="r1a-PL-TNk" secondAttribute="leadingMargin" id="Uya-vP-wQ9"/>
+                            <constraint firstItem="r5S-Wt-VlK" firstAttribute="top" secondItem="Hz7-tr-2NJ" secondAttribute="bottom" constant="8" id="kQY-LN-56o"/>
+                            <constraint firstItem="GM8-3g-V62" firstAttribute="height" secondItem="r1a-PL-TNk" secondAttribute="height" multiplier="0.5" constant="15" id="tPz-Yn-Q0e"/>
+                            <constraint firstItem="xph-p4-QMD" firstAttribute="top" secondItem="GM8-3g-V62" secondAttribute="bottom" constant="8" id="u46-sA-XIM"/>
+                            <constraint firstItem="GM8-3g-V62" firstAttribute="top" secondItem="r5S-Wt-VlK" secondAttribute="bottom" constant="3" id="vyV-JB-g8P"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="submitButton" destination="xph-p4-QMD" id="DwN-Zd-qZI"/>
                         <outlet property="webView" destination="GM8-3g-V62" id="pYF-qV-EWY"/>
                     </connections>
                 </viewController>
@@ -1067,6 +1073,14 @@
                                     <action selector="forgotPasswordTapped:" destination="dEI-pK-edv" eventType="touchUpInside" id="NHX-AH-1Kg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dd-IY-ccC">
+                                <rect key="frame" x="160" y="224" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Start Over &amp; Sign Up"/>
+                                <connections>
+                                    <action selector="startOverTapped:" destination="dEI-pK-edv" eventType="touchUpInside" id="Ac9-oQ-mgr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1074,21 +1088,26 @@
                             <constraint firstItem="FZY-c4-4sb" firstAttribute="centerX" secondItem="AZj-MQ-RKm" secondAttribute="centerX" id="3rT-xL-ohO"/>
                             <constraint firstItem="BIu-NF-gdG" firstAttribute="centerX" secondItem="FZY-c4-4sb" secondAttribute="centerX" id="5h0-DZ-3IP"/>
                             <constraint firstItem="BIu-NF-gdG" firstAttribute="top" secondItem="FZY-c4-4sb" secondAttribute="bottom" constant="8" id="5jO-GV-qIc"/>
+                            <constraint firstItem="1dd-IY-ccC" firstAttribute="width" secondItem="kpf-lB-tel" secondAttribute="width" id="K8G-W0-gVb"/>
+                            <constraint firstItem="1dd-IY-ccC" firstAttribute="height" secondItem="kpf-lB-tel" secondAttribute="height" id="LoE-Qy-KBd"/>
                             <constraint firstItem="kpf-lB-tel" firstAttribute="top" secondItem="BIu-NF-gdG" secondAttribute="bottom" constant="8" id="NeN-UV-Zx9"/>
                             <constraint firstItem="FZY-c4-4sb" firstAttribute="top" secondItem="AZj-MQ-RKm" secondAttribute="bottom" constant="8" id="OtG-jN-M8L"/>
                             <constraint firstItem="kpf-lB-tel" firstAttribute="height" secondItem="BIu-NF-gdG" secondAttribute="height" id="PZA-YM-IMf"/>
+                            <constraint firstItem="1dd-IY-ccC" firstAttribute="centerX" secondItem="kpf-lB-tel" secondAttribute="centerX" id="PwT-rw-tJs"/>
                             <constraint firstItem="FZY-c4-4sb" firstAttribute="width" secondItem="AZj-MQ-RKm" secondAttribute="width" id="WvC-O6-STY"/>
                             <constraint firstItem="BIu-NF-gdG" firstAttribute="width" secondItem="FZY-c4-4sb" secondAttribute="width" id="nio-2B-rO7"/>
                             <constraint firstItem="BIu-NF-gdG" firstAttribute="height" secondItem="FZY-c4-4sb" secondAttribute="height" id="nsc-t3-pCi"/>
                             <constraint firstItem="kpf-lB-tel" firstAttribute="width" secondItem="BIu-NF-gdG" secondAttribute="width" id="pXs-xV-kXF"/>
                             <constraint firstItem="kpf-lB-tel" firstAttribute="centerX" secondItem="BIu-NF-gdG" secondAttribute="centerX" id="scy-oK-Tzo"/>
                             <constraint firstItem="AZj-MQ-RKm" firstAttribute="centerX" secondItem="DYh-xu-oXY" secondAttribute="centerX" id="wDu-B6-PW9"/>
+                            <constraint firstItem="1dd-IY-ccC" firstAttribute="top" secondItem="kpf-lB-tel" secondAttribute="bottom" constant="8" id="wK5-HG-WR3"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="forgotPasswordButton" destination="kpf-lB-tel" id="Am0-Dc-Lzu"/>
                         <outlet property="loginButton" destination="BIu-NF-gdG" id="5DY-XD-Jjr"/>
                         <outlet property="passwordTextField" destination="FZY-c4-4sb" id="JE1-6W-t9M"/>
+                        <outlet property="startOverButton" destination="1dd-IY-ccC" id="WGW-Ga-v4s"/>
                         <outlet property="usernameTextField" destination="AZj-MQ-RKm" id="oWC-bh-hdt"/>
                         <segue destination="fzi-xc-UTg" kind="presentation" identifier="loginHelpSegue" id="3Zt-hd-L07"/>
                     </connections>

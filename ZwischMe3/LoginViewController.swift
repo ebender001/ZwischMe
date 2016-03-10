@@ -14,6 +14,7 @@ class LoginViewController: UIViewController, ForgotPasswordProtocol, UserSignupP
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet weak var startOverButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class LoginViewController: UIViewController, ForgotPasswordProtocol, UserSignupP
         loginButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         loginButton.layer.cornerRadius = 5.0
         forgotPasswordButton.setTitleColor(deepRedColor, forState: .Normal)
+        startOverButton.setTitleColor(deepRedColor, forState: .Normal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "info"), style: .Plain, target: self, action: "help:")
         title = "Log In"
     }
@@ -65,6 +67,17 @@ class LoginViewController: UIViewController, ForgotPasswordProtocol, UserSignupP
         presentViewController(alert, animated: true, completion: nil)
     }
     
+    @IBAction func startOverTapped(sender: AnyObject) {
+        let alert = UIAlertController(title: "Start Over", message: "Are you sure you want to start over as a new user?", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: kHasSignedUp)
+            NSUserDefaults.standardUserDefaults().synchronize()
+            self.navigationController?.popViewControllerAnimated(true)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .Destructive, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
+        
+    }
     //MARK: - DELEGATE METHODS
     func didRestorPassword(controller: ForgotPassword) {
         EZLoadingActivity.hide()

@@ -14,7 +14,8 @@ class AllowedUsers: NSObject {
     var firstName: String?
     var lastName: String?
     var institutionId: String?
-    var attending = false
+    var attending: Int = 0
+    var active: Int = 0
     var objectId: String?
     var institution: Institution?
     

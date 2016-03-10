@@ -46,10 +46,10 @@ class CompletedCaseDetailViewController: UIViewController {
         str += "<td class='data'>\(theCase!.procedureType)</td></tr>"
         str += "<tr><td class='label'>Procedure Detail:</td>"
         str += "<td class='data'>\(theCase!.procedureDetail)"
-        if theCase!.redo {
+        if theCase!.redo == 1 {
             str += " (Redo)"
         }
-        if theCase!.minimallyInvasive {
+        if theCase!.minimallyInvasive == 1 {
             str += " (Minimally Invasive)"
         }
         str += "</td></tr>"

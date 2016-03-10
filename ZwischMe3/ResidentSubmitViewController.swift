@@ -18,6 +18,7 @@ class ResidentSubmitViewController: UIViewController, CaseSubmitterProtocol {
     var delegate: ResidentSubmissionProtocol?
     
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var submitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,9 @@ class ResidentSubmitViewController: UIViewController, CaseSubmitterProtocol {
     
     func htmlString() -> String {
         let theCase = Case.sharedInstance
+        submitButton.backgroundColor = greenColor
+        submitButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        submitButton.layer.cornerRadius = 5.0
         
         var str = "<html><head><link rel='stylesheet' type='text/css' href='style.css'></head><body>"
         str += "<table><tr><td class='label'>Date of case:</td><td class='data'>"
@@ -47,10 +51,10 @@ class ResidentSubmitViewController: UIViewController, CaseSubmitterProtocol {
         str += "<td class='data'>\(theCase.procedureType)</td></tr>"
         str += "<tr><td class='label'>Procedure Detail:</td>"
         str += "<td class='data'>\(theCase.procedureDetail)"
-        if theCase.redo {
+        if theCase.redo == 1 {
             str += " (Redo)"
         }
-        if theCase.minimallyInvasive {
+        if theCase.minimallyInvasive == 1 {
             str += " (Minimally Invasive)"
         }
         str += "</td></tr>"
@@ -62,6 +66,11 @@ class ResidentSubmitViewController: UIViewController, CaseSubmitterProtocol {
         str += "</table></body></html>"
         
         return str
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        webView.scrollView.flashScrollIndicators()
     }
     
     @IBAction func submitTapped(sender: AnyObject) {

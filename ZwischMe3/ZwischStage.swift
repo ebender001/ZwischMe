@@ -11,7 +11,7 @@ import Foundation
 class ZwischStage: NSObject {
     var zwischName: String?
     var zwischInformation: String?
-    var order: Int?
+    var order: Int = 0
 }
 
 extension ZwischStage {

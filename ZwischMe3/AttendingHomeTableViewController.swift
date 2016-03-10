@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import MessageUI
 
-class AttendingHomeTableViewController: UITableViewController, AttendingHomeProtocol, AttendingCasesProtocol {
+class AttendingHomeTableViewController: CustomTableViewController, AttendingHomeProtocol, AttendingCasesProtocol, MFMessageComposeViewControllerDelegate, UserLogoutProtocol {
     
     var cases: [Case]?
+    var completedCase: Case?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,25 @@ class AttendingHomeTableViewController: UITableViewController, AttendingHomeProt
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        if completedCase != nil {
+            let alert = UIAlertController(title: "Notify Resident", message: "Do you want to notify the resident by text message that you have completed your evaluation?", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+                self.sendMessage(self.completedCase!)
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .Destructive, handler: nil))
+            presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func logOut(sender: AnyObject?) {
+        let alert = UIAlertController(title: "Logout", message: "Are you sure you want to log out? There really is no reason to do so if you are using the same account to submit cases.", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+            let userLogout = UserLogout()
+            userLogout.delegate = self
+            userLogout.logout()
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .Destructive, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -112,6 +133,43 @@ class AttendingHomeTableViewController: UITableViewController, AttendingHomeProt
         }
     }
     
+    //MARK: - MESSAGING
+    func sendMessage(finishedCase: Case) {
+        if MFMessageComposeViewController.canSendText() {
+            let mvc = MFMessageComposeViewController()
+            mvc.messageComposeDelegate = self
+            var cellNumber = ""
+            var attending = ""
+            if let number = finishedCase.residentObject?.cellNumber {
+                cellNumber = number
+            }
+            if let name = finishedCase.attendingObject?.lastName {
+                attending = "Dr. \(name)"
+            }
+            mvc.recipients = [cellNumber]
+            mvc.body = "\(attending) has evaluated your case on the Zwisch Me app. Tap <a href='zwischmeApp://'></a>"
+            self.presentViewController(mvc, animated: true, completion: nil)
+            
+        }
+        else{
+            let alert = showAlert(withTitle: "Message Error", withMessage: "This device can not send text messages.")
+            presentViewController(alert, animated: true, completion: nil)
+        }
+        completedCase = nil
+    }
+    
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        if result == MessageComposeResultSent {
+            SJNotificationViewController(parentView: self.navigationController?.view, title: "Text successfully sent!", level: SJNotificationLevelSuccess, position: SJNotificationPositionBottom, spinner: false).showFor(2)
+        }
+        else if result == MessageComposeResultFailed {
+            SJNotificationViewController(parentView: self.navigationController?.view, title: "Text message failed", level: SJNotificationLevelError, position: SJNotificationPositionBottom, spinner: false).showFor(2)
+        }
+        
+        //self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
     //MARK: - DELEGATE METHODS
     func didFetchCases(cases: [Case]) {
         EZLoadingActivity.hide()
@@ -124,6 +182,7 @@ class AttendingHomeTableViewController: UITableViewController, AttendingHomeProt
     }
     
     func didSubmitCase(theCase: Case) {
+        completedCase = theCase
         if let index = cases?.indexOf(theCase) {
             cases?.removeAtIndex(index)
             tableView.reloadData()
@@ -134,5 +193,16 @@ class AttendingHomeTableViewController: UITableViewController, AttendingHomeProt
                 })
             }
         }
+    }
+    
+    func didLogout(controller: UserLogout) {
+        controller.delegate = nil
+        navigationController?.popViewControllerAnimated(true)
+    }
+    func failedToLogout(reason: String, controller: UserLogout) {
+        controller.delegate = nil
+        let alert = UIAlertController(title: "Logout Failed", message: reason, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
     }
 }
