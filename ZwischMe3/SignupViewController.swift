@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class SignupViewController: UIViewController, UserSignupProtocol {
+class SignupViewController: UIViewController, UserSignupProtocol, MFMailComposeViewControllerDelegate, HelpContactFetcherProtocol {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -16,6 +17,7 @@ class SignupViewController: UIViewController, UserSignupProtocol {
     @IBOutlet weak var cellphoneTextField: UITextField!
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var emailHelpButton: UIButton!
     
     var username = ""
     var password = ""
@@ -33,6 +35,7 @@ class SignupViewController: UIViewController, UserSignupProtocol {
         signupButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         signupButton.backgroundColor = darkBlueColor
         signupButton.layer.cornerRadius = 5.0
+        emailHelpButton.setTitleColor(deepRedColor, forState: .Normal)
         title = "Join Zwisch Me!!"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "info"), style: .Plain, target: self, action: "help:")
         let tap = UITapGestureRecognizer(target: self, action: "handleTap:")
@@ -65,6 +68,38 @@ class SignupViewController: UIViewController, UserSignupProtocol {
         userSignUp.checkUserAllowed()
     }
 
+    @IBAction func emailHelpButtonTapped(sender: AnyObject) {
+        EZLoadingActivity.show("Finding help...", disableUI: true)
+        let helpFetcher = HelpContactFetcher()
+        helpFetcher.delegate = self
+        helpFetcher.fetchHelp()
+    }
+    
+    func sendHelpEmail(address: String) {
+        if MFMailComposeViewController.canSendMail() {
+            let mvc = MFMailComposeViewController()
+            mvc.mailComposeDelegate = self
+            mvc.setToRecipients([address])
+            mvc.setSubject("Help with Zwisch Me Sign Up")
+            presentViewController(mvc, animated: true, completion: nil)
+        }
+        else{
+            let alert = showAlert(withTitle: "Email Error", withMessage: "This device can not send email.")
+            presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        dismissViewControllerAnimated(true, completion: nil)
+        if result == MFMailComposeResultSent {
+            SJNotificationViewController(parentView: self.navigationController?.view, title: "Help is on the way.", level: SJNotificationLevelMessage, position: SJNotificationPositionBottom, spinner: false).showFor(2)
+        }
+        else if result == MFMailComposeResultFailed{
+            let alert = showAlert(withTitle: "Help Error", withMessage: "Something went wrong. Use your mail client to manually email info@cvoffice.com")
+            presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
     //MARK: - validation
     func allFieldsValid() -> Bool {
         warningMessagesArray.removeAll()
@@ -162,7 +197,16 @@ class SignupViewController: UIViewController, UserSignupProtocol {
         let alert = UIAlertController(title: "Signup Error", message: reason, preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
         presentViewController(alert, animated: true, completion: nil)
-        
+    }
+    
+    func didFetchHelpContact(email: String) {
+        EZLoadingActivity.hide()
+        sendHelpEmail(email)
+    }
+    func failedToFetchHelpContact(reason: String) {
+        EZLoadingActivity.hide()
+        let alert = showAlert(withTitle: "Help Error", withMessage: reason)
+        presentViewController(alert, animated: true, completion: nil)
     }
 
 }

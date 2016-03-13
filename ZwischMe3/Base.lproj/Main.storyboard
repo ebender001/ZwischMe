@@ -1161,10 +1161,18 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="0yJ-jB-ciV">
                                 <rect key="frame" x="410" y="229" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLY-GB-mA3">
+                                <rect key="frame" x="160" y="262" width="280" height="30"/>
+                                <state key="normal" title="Email for Additional Help"/>
+                                <connections>
+                                    <action selector="emailHelpButtonTapped:" destination="Ts6-Ag-mns" eventType="touchUpInside" id="ERe-BQ-7bn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0yJ-jB-ciV" firstAttribute="trailing" secondItem="BS1-Zx-ciI" secondAttribute="trailing" constant="-10" id="0cs-Ga-lj5"/>
+                            <constraint firstItem="xLY-GB-mA3" firstAttribute="width" secondItem="XP5-Gx-eHa" secondAttribute="width" id="2wI-sZ-Wto"/>
                             <constraint firstItem="lxG-qH-ehK" firstAttribute="centerX" secondItem="dju-UK-3wR" secondAttribute="centerX" id="4fA-fj-Skw"/>
                             <constraint firstItem="9gE-hW-cM8" firstAttribute="centerX" secondItem="lxG-qH-ehK" secondAttribute="centerX" id="6f2-rq-NIC"/>
                             <constraint firstItem="XP5-Gx-eHa" firstAttribute="centerX" secondItem="BS1-Zx-ciI" secondAttribute="centerX" id="6fa-WB-3JS"/>
@@ -1180,10 +1188,14 @@
                             <constraint firstItem="9gE-hW-cM8" firstAttribute="top" secondItem="lxG-qH-ehK" secondAttribute="bottom" constant="8" id="fpV-df-mTg"/>
                             <constraint firstItem="BS1-Zx-ciI" firstAttribute="top" secondItem="9gE-hW-cM8" secondAttribute="bottom" constant="8" id="gBC-6w-Vvy"/>
                             <constraint firstItem="dju-UK-3wR" firstAttribute="top" secondItem="4Uu-rZ-ZkU" secondAttribute="bottom" constant="8" id="gk6-Xc-asm"/>
+                            <constraint firstItem="xLY-GB-mA3" firstAttribute="height" secondItem="XP5-Gx-eHa" secondAttribute="height" id="htf-Ug-xSb"/>
+                            <constraint firstItem="xLY-GB-mA3" firstAttribute="centerX" secondItem="XP5-Gx-eHa" secondAttribute="centerX" id="kIC-Y7-G4o"/>
+                            <constraint firstItem="xLY-GB-mA3" firstAttribute="top" secondItem="XP5-Gx-eHa" secondAttribute="bottom" constant="8" id="klM-5b-nRd"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cellphoneTextField" destination="BS1-Zx-ciI" id="mA3-1z-z27"/>
+                        <outlet property="emailHelpButton" destination="xLY-GB-mA3" id="zrI-Aq-UF7"/>
                         <outlet property="emailTextField" destination="9gE-hW-cM8" id="Ilk-zA-Uu7"/>
                         <outlet property="passwordTextField" destination="lxG-qH-ehK" id="pxm-md-9jS"/>
                         <outlet property="signupButton" destination="XP5-Gx-eHa" id="M1K-qj-Kew"/>

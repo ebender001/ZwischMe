@@ -27,7 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        backendless.messaging.registerDeviceWithTokenData(deviceToken)
+        backendless.messaging.registerDeviceToken(deviceToken)
+        //backendless.messaging.registerDeviceWithTokenData(deviceToken)
+        
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {

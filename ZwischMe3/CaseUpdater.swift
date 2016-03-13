@@ -18,7 +18,7 @@ class CaseUpdater {
     
     func updateAfterResidentView() {
         let datastore = Backendless.sharedInstance().data.of(Case.ofClass())
-        theCase.viewedByResident = 1
+        theCase.viewedByResident = true
         datastore.save(theCase)
     }
 }

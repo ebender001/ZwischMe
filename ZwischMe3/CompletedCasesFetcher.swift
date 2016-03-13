@@ -23,7 +23,7 @@ class CompletedCasesFetcher {
         let institution = user.institution!
         let institutionId = institution.objectId!
         let residentObjectId = user.objectId!
-        dataQuery.whereClause = "attendingComplete = 1 and institutionObject.objectId = '\(institutionId)' and residentObject.objectId = '\(residentObjectId)'"
+        dataQuery.whereClause = "attendingComplete = true and institutionObject.objectId = '\(institutionId)' and residentObject.objectId = '\(residentObjectId)'"
         dataQuery.queryOptions.sortBy(["caseDate desc"])
         datastore.find(dataQuery, response: { (results: BackendlessCollection!) -> Void in
             if results.totalObjects == 0 {
@@ -34,7 +34,7 @@ class CompletedCasesFetcher {
                 var viewedArray = [Case]()
                 if let allCases = results.getCurrentPage() as? [Case] {
                     for oneCase: Case in allCases {
-                        if oneCase.viewedByResident == 1 {
+                        if oneCase.viewedByResident {
                             viewedArray.append(oneCase)
                         }
                         else{

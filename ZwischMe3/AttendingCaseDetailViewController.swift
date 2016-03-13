@@ -80,7 +80,7 @@ class AttendingCaseDetailViewController: UIViewController, AttendingCaseUpdaterP
     
     func submit(sender: AnyObject?) {
         tap(nil)
-        theCase?.attendingComplete = 1
+        theCase?.attendingComplete = true
         var strZwisch = ""
         switch(zwischStageSeg.selectedSegmentIndex) {
         case 0:

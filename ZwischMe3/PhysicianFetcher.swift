@@ -22,7 +22,7 @@ class PhysicianFetcher {
         let dataQuery = BackendlessDataQuery()
         let institution = user.institution!
         let institutionId = institution.objectId!
-        dataQuery.whereClause = "active = 1 and attending = \(attending) and institution.objectId = '\(institutionId)'"
+        dataQuery.whereClause = "active = true and attending = \(attending) and institution.objectId = '\(institutionId)'"
         var allPhysicians = [AllowedUsers]()
         datastore.find(dataQuery, response: { (result:BackendlessCollection!) -> Void in
             if result.totalObjects == 0 {

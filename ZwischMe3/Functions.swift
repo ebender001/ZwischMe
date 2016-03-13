@@ -32,10 +32,10 @@ func registerForNotificationsAndEnterApp(controller: UIViewController) {
     let defaults = NSUserDefaults.standardUserDefaults()
     var role = ""
     let allowedUser = Backendless.sharedInstance().userService.currentUser.getProperty("allowedUser") as! AllowedUsers
-    if allowedUser.attending == 1 {
+    if allowedUser.attending {
         role = "attending"
     }
-    else if allowedUser.attending == 0 {
+    else if allowedUser.attending == false {
         role = "resident"
     }
     if defaults.boolForKey(kRegisterForNotification) == false {

@@ -56,10 +56,10 @@ class PendingCaseDetailViewController: UIViewController {
         str += "<td class='data'>\(theCase!.procedureType)</td></tr>"
         str += "<tr><td class='label'>Procedure Detail:</td>"
         str += "<td class='data'>\(theCase!.procedureDetail)"
-        if theCase!.redo == 1 {
+        if theCase!.redo {
             str += " (Redo)"
         }
-        if theCase!.minimallyInvasive == 1 {
+        if theCase!.minimallyInvasive {
             str += " (Minimally Invasive)"
         }
         str += "</td></tr>"

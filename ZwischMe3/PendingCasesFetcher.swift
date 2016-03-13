@@ -21,7 +21,7 @@ class PendingCasesFetcher {
         let datastore = Backendless.sharedInstance().data.of(Case.ofClass())
         let dataQuery = BackendlessDataQuery()
         dataQuery.queryOptions.sortBy(["caseDate"])
-        dataQuery.whereClause = "attendingComplete = 0 and residentObject.objectId = '\(residentObject.objectId!)'"
+        dataQuery.whereClause = "attendingComplete = false and residentObject.objectId = '\(residentObject.objectId!)'"
         datastore.find(dataQuery, response: { (results: BackendlessCollection!) -> Void in
             if results.totalObjects == 0 {
                 self.delegate?.failedToFetchCases("There are no pending cases.")

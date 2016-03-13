@@ -19,18 +19,18 @@ class Case: NSObject{
     var caseOfDay: Int = 1
     var procedureType = ""
     var procedureDetail = ""
-    var redo: Int = 0
-    var minimallyInvasive: Int = 0
+    var redo: Bool = false
+    var minimallyInvasive: Bool = false
     var residentZwischStage = ""
     var residentDifficulty = ""
     var attendingZwischStage = ""
     var attendingDifficulty = ""
     var attendingComments = ""
-    var attendingComplete: Int = 0
+    var attendingComplete: Bool = false
     var attendingObject: AllowedUsers?
     var institutionObject: Institution?
     var residentObject: AllowedUsers?
-    var viewedByResident: Int = 0
+    var viewedByResident: Bool = false
     var caseDateSummary = ""
 }
 
@@ -43,18 +43,18 @@ extension Case: NSCopying {
         caseOfDay = 1
         procedureType = ""
         procedureDetail = ""
-        redo = 0
-        minimallyInvasive = 0
+        redo = false
+        minimallyInvasive = false
         residentZwischStage = ""
         residentDifficulty = ""
         attendingZwischStage = ""
         attendingDifficulty = ""
         attendingComments = ""
-        attendingComplete = 0
+        attendingComplete = false
         attendingObject = nil
         institutionObject = nil
         residentObject = nil
-        viewedByResident = 0
+        viewedByResident = false
         caseDateSummary = ""
     }
     
@@ -75,12 +75,12 @@ extension Case: NSCopying {
     func caseProcedureString() -> String {
         var detail = procedureDetail
         var str = "\(procedureType): "
-        if redo == 1 {
+        if redo {
             str += "Redo "
             detail = detail.lowercaseString
         }
         str += detail
-        if minimallyInvasive == 1 {
+        if minimallyInvasive {
             str += " (minimally invasive)"
         }
         return str

@@ -14,11 +14,12 @@ class AllowedUsers: NSObject {
     var firstName: String?
     var lastName: String?
     var institutionId: String?
-    var attending: Int = 0
-    var active: Int = 0
+    var attending: Bool = false
+    var active: Bool = false
     var objectId: String?
     var institution: Institution?
-    
+    var admin: Bool = false
+    var i6: Bool = false
     
 }
 

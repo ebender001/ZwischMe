@@ -95,10 +95,10 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
             if type != "" && detail != "" {
                 finalStr = "\(type): \(detail)"
             }
-            if theCase.redo == 1 {
+            if theCase.redo {
                 finalStr = "\(finalStr), redo"
             }
-            if theCase.minimallyInvasive == 1 {
+            if theCase.minimallyInvasive {
                 finalStr = "\(finalStr), minimally invasive"
             }
             cell.detailTextLabel?.text = finalStr
