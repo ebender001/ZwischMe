@@ -219,8 +219,6 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
         else if result == MessageComposeResultFailed {
             SJNotificationViewController(parentView: self.navigationController?.view, title: "Text message failed", level: SJNotificationLevelError, position: SJNotificationPositionBottom, spinner: false).showFor(2)
         }
-        
-        //self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     //MARK: - PROTOCOL METHODS

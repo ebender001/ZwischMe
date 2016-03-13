@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class PendingCaseDetailViewController: UIViewController {
+class PendingCaseDetailViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     var theCase: Case?
 
     @IBOutlet weak var webView: UIWebView!
@@ -32,7 +33,35 @@ class PendingCaseDetailViewController: UIViewController {
     }
     
     func remind(sender: AnyObject?) {
-        
+        if MFMessageComposeViewController.canSendText() {
+            var cellNumber = ""
+            var resident = ""
+            if let number = theCase!.attendingObject?.cellNumber {
+                cellNumber = number
+            }
+            if let residentName = theCase!.residentObject?.lastName {
+                resident = "Dr. \(residentName)"
+            }
+            let mvc = MFMessageComposeViewController()
+            mvc.messageComposeDelegate = self
+            mvc.recipients = [cellNumber]
+            mvc.body = "Please evaluate the case from \(resident) on the Zwisch Me app. Tap <a href='zwischmeApp://'></a>"
+            self.presentViewController(mvc, animated: true, completion: nil)
+        }
+        else{
+            let alert = showAlert(withTitle: "Text Message", withMessage: "This device can not send text messages.")
+            presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        if result == MessageComposeResultSent {
+            SJNotificationViewController(parentView: self.navigationController?.view, title: "Text successfully sent!", level: SJNotificationLevelSuccess, position: SJNotificationPositionBottom, spinner: false).showFor(2)
+        }
+        else if result == MessageComposeResultFailed {
+            SJNotificationViewController(parentView: self.navigationController?.view, title: "Text message failed", level: SJNotificationLevelError, position: SJNotificationPositionBottom, spinner: false).showFor(2)
+        }
     }
 
     override func didReceiveMemoryWarning() {
