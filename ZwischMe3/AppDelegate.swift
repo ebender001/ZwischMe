@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         backendless.initApp(APP_ID, secret: SECRET_KEY, version: VERSION_NUMBER)
         backendless.userService.setStayLoggedIn(true)
         
+        
         return true
     }
     

@@ -53,6 +53,7 @@ func registerForNotificationsAndEnterApp(controller: UIViewController) {
             let application = UIApplication.sharedApplication()
             application.registerUserNotificationSettings(settings)
             application.registerForRemoteNotifications()
+            Backendless.sharedInstance().messaging.registerForRemoteNotifications()
             if role == "attending" {
                 controller.performSegueWithIdentifier(attendingStartSegue, sender: nil)
             }
