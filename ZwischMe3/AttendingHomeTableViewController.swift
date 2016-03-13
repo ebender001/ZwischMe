@@ -174,6 +174,7 @@ class AttendingHomeTableViewController: CustomTableViewController, AttendingHome
     func didFetchCases(cases: [Case]) {
         EZLoadingActivity.hide()
         self.cases = cases
+        self.updateAttendingCaseNumberBadge(cases.count)
         tableView.reloadData()
     }
     func failedToFetchCases(reason: String) {
@@ -185,6 +186,7 @@ class AttendingHomeTableViewController: CustomTableViewController, AttendingHome
         completedCase = theCase
         if let index = cases?.indexOf(theCase) {
             cases?.removeAtIndex(index)
+            self.updateAttendingCaseNumberBadge(cases?.count)
             tableView.reloadData()
             if cases?.count == 0 {
                 SJNotificationViewController(parentView: self.navigationController?.view, title: "You are all caught up!", level: SJNotificationLevelSuccess, position: SJNotificationPositionBottom, spinner: false).showFor(2)
@@ -192,6 +194,13 @@ class AttendingHomeTableViewController: CustomTableViewController, AttendingHome
                     self.showSmiley()
                 })
             }
+        }
+    }
+    
+    func updateAttendingCaseNumberBadge(number: Int?) {
+        if let badgeNumber = number {
+            let app = UIApplication.sharedApplication().delegate as! AppDelegate
+            app.attendingPendingCases = badgeNumber
         }
     }
     
