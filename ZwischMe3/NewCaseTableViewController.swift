@@ -171,7 +171,7 @@ class NewCaseTableViewController: UITableViewController, PhysicianFetcherProtoco
         EZLoadingActivity.show("Fetching...", disableUI: true)
         let physicianFetcher = PhysicianFetcher()
         physicianFetcher.delegate = self
-        physicianFetcher.startFetch(isAttending: 1)
+        physicianFetcher.startFetch(isAttending: true)
     }
     
     func fetchSpecialty() {

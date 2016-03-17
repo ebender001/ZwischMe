@@ -17,7 +17,7 @@ class PhysicianFetcher {
     var delegate: PhysicianFetcherProtocol?
     let user = currentAllowedUser()
     
-    func startFetch(isAttending attending: Int) {
+    func startFetch(isAttending attending: Bool) {
         let datastore = Backendless.sharedInstance().data.of(AllowedUsers.ofClass())
         let dataQuery = BackendlessDataQuery()
         let institution = user.institution!
