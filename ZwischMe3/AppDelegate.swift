@@ -24,9 +24,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         backendless.initApp(APP_ID, secret: SECRET_KEY, version: VERSION_NUMBER)
         backendless.userService.setStayLoggedIn(true)
-        
+        application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
         return true
+    }
+    
+    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        if let currentUser = backendless.userService.currentUser {
+            if let attendingObject = currentUser.getProperty("allowedUser") {
+                let backgroundFetcher = BackgroundAttendingCaseFetcher(attending: attendingObject as! AllowedUsers, handler: completionHandler)
+                backgroundFetcher.startFetch()
+            }
+            
+        }
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
