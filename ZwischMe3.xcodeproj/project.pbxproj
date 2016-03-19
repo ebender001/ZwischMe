@@ -10,7 +10,7 @@
 		CE4282541C8E427C00B31C97 /* CustomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4282531C8E427C00B31C97 /* CustomTableViewController.swift */; };
 		CE54AB3E1C95AFA9008B7F96 /* HelpContactFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE54AB3D1C95AFA9008B7F96 /* HelpContactFetcher.swift */; };
 		CE54AB401C95B0D9008B7F96 /* HelpContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE54AB3F1C95B0D9008B7F96 /* HelpContact.swift */; };
-		CE6E06C51C9B646F005BC07D /* BackgroundAttendingCaseFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E06C41C9B646F005BC07D /* BackgroundAttendingCaseFetcher.swift */; };
+		CE6E06C51C9B646F005BC07D /* BackgroundPendingCaseFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E06C41C9B646F005BC07D /* BackgroundPendingCaseFetcher.swift */; };
 		CEA705E31C80EDD600204138 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA705E21C80EDD600204138 /* AppDelegate.swift */; };
 		CEA705E81C80EDD600204138 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA705E61C80EDD600204138 /* Main.storyboard */; };
 		CEA705EA1C80EDD600204138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA705E91C80EDD600204138 /* Assets.xcassets */; };
@@ -86,7 +86,7 @@
 		CE4282531C8E427C00B31C97 /* CustomTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewController.swift; sourceTree = "<group>"; };
 		CE54AB3D1C95AFA9008B7F96 /* HelpContactFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpContactFetcher.swift; sourceTree = "<group>"; };
 		CE54AB3F1C95B0D9008B7F96 /* HelpContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpContact.swift; sourceTree = "<group>"; };
-		CE6E06C41C9B646F005BC07D /* BackgroundAttendingCaseFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundAttendingCaseFetcher.swift; sourceTree = "<group>"; };
+		CE6E06C41C9B646F005BC07D /* BackgroundPendingCaseFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundPendingCaseFetcher.swift; sourceTree = "<group>"; };
 		CEA705DF1C80EDD600204138 /* ZwischMe3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZwischMe3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA705E21C80EDD600204138 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEA705E71C80EDD600204138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -453,7 +453,7 @@
 				CEEA96071C8A37CB00EB81CF /* UserLogout.swift */,
 				CEEA96091C8A3F0300EB81CF /* ForgotPassword.swift */,
 				CE54AB3D1C95AFA9008B7F96 /* HelpContactFetcher.swift */,
-				CE6E06C41C9B646F005BC07D /* BackgroundAttendingCaseFetcher.swift */,
+				CE6E06C41C9B646F005BC07D /* BackgroundPendingCaseFetcher.swift */,
 			);
 			name = DataConnection;
 			sourceTree = "<group>";
@@ -999,7 +999,7 @@
 				CEEA95FA1C851E6C00EB81CF /* AttendingZwischInfoViewController.swift in Sources */,
 				CEEA95E51C83697300EB81CF /* CompletedCasesTableViewController.swift in Sources */,
 				CEA705E31C80EDD600204138 /* AppDelegate.swift in Sources */,
-				CE6E06C51C9B646F005BC07D /* BackgroundAttendingCaseFetcher.swift in Sources */,
+				CE6E06C51C9B646F005BC07D /* BackgroundPendingCaseFetcher.swift in Sources */,
 				CEA706D51C80F4E500204138 /* Constants.swift in Sources */,
 				CEC132221C82A01500A20D37 /* CaseSubmitter.swift in Sources */,
 				CEC132101C823BD400A20D37 /* ProcedureDetailsTableViewController.swift in Sources */,

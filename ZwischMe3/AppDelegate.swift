@@ -32,10 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         if let currentUser = backendless.userService.currentUser {
             if let attendingObject = currentUser.getProperty("allowedUser") {
-                let backgroundFetcher = BackgroundAttendingCaseFetcher(attending: attendingObject as! AllowedUsers, handler: completionHandler)
+                let backgroundFetcher = BackgroundPendingCaseFetcher(attending: attendingObject as! AllowedUsers, handler: completionHandler)
                 backgroundFetcher.startFetch()
             }
-            
         }
     }
     
