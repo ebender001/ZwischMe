@@ -16,6 +16,9 @@ class AttendingHomeTableViewController: CustomTableViewController, AttendingHome
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        self.refreshControl?.tintColor = UIColor.whiteColor()
 
         title = "Pending Cases"
         tableView.backgroundColor = purpleColor
@@ -44,6 +47,13 @@ class AttendingHomeTableViewController: CustomTableViewController, AttendingHome
             alert.addAction(UIAlertAction(title: "No", style: .Destructive, handler: nil))
             presentViewController(alert, animated: true, completion: nil)
         }
+    }
+    
+    func refresh(sender: AnyObject?) {
+        EZLoadingActivity.show("Fetching...", disableUI: true)
+        let fetcher = AttendingHomeCasesFetcher()
+        fetcher.delegate = self
+        fetcher.startFetch()
     }
     
     func logOut(sender: AnyObject?) {
@@ -172,12 +182,14 @@ class AttendingHomeTableViewController: CustomTableViewController, AttendingHome
     
     //MARK: - DELEGATE METHODS
     func didFetchCases(cases: [Case]) {
+        self.refreshControl?.endRefreshing()
         EZLoadingActivity.hide()
         self.cases = cases
         self.updateAttendingCaseNumberBadge(cases.count)
         tableView.reloadData()
     }
     func failedToFetchCases(reason: String) {
+        self.refreshControl?.endRefreshing()
         EZLoadingActivity.hide()
         SJNotificationViewController(parentView: self.navigationController?.view, title: reason, level: SJNotificationLevelMessage, position: SJNotificationPositionBottom, spinner: false).showFor(3)
     }
